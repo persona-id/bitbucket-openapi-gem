@@ -1,0 +1,9 @@
+# https://openapi-generator.tech/docs/generators/ruby
+gemName: bitbucket
+gemAuthor: Persona Identities
+legacyDiscriminatorBehavior: false
+moduleName: Bitbucket
+library: faraday
+disallowAdditionalPropertiesIfNotPresent: false
+# You need openapi-generator version 6.1.0-SNAPSHOT for this to work
+useAutoload: true
