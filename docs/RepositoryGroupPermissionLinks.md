@@ -1,4 +1,4 @@
-# Bitbucket::RepositoryUserPermissionLinks
+# Bitbucket::RepositoryGroupPermissionLinks
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'bitbucket'
 
-instance = Bitbucket::RepositoryUserPermissionLinks.new(
+instance = Bitbucket::RepositoryGroupPermissionLinks.new(
   _self: null
 )
 ```

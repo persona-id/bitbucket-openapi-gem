@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **links** | [**GroupLinks**](GroupLinks.md) |  | [optional] |
+| **links** | [**SnippetCommentLinks**](SnippetCommentLinks.md) |  | [optional] |
 | **owner** | [**Account**](Account.md) |  | [optional] |
 | **workspace** | [**Workspace**](Workspace.md) |  | [optional] |
 | **name** | **String** |  | [optional] |

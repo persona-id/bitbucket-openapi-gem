@@ -124,7 +124,7 @@ module Bitbucket
         :'id' => :'Integer',
         :'title' => :'String',
         :'rendered' => :'RenderedPullRequestMarkup',
-        :'summary' => :'IssueContent',
+        :'summary' => :'BaseCommitSummary',
         :'state' => :'String',
         :'author' => :'Account',
         :'source' => :'PullrequestEndpoint',

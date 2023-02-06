@@ -124,7 +124,7 @@ module Bitbucket
     # @return true if the model is valid
     def valid?
       return false if @type.nil?
-      permission_validator = EnumAttributeValidator.new('String', ["admin", "write", "read", "none"])
+      permission_validator = EnumAttributeValidator.new('String', ["read", "write", "admin", "none"])
       return false unless permission_validator.valid?(@permission)
       true
     end
@@ -132,7 +132,7 @@ module Bitbucket
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] permission Object to be assigned
     def permission=(permission)
-      validator = EnumAttributeValidator.new('String', ["admin", "write", "read", "none"])
+      validator = EnumAttributeValidator.new('String', ["read", "write", "admin", "none"])
       unless validator.valid?(permission)
         fail ArgumentError, "invalid value for \"permission\", must be one of #{validator.allowable_values}."
       end

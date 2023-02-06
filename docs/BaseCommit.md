@@ -8,7 +8,7 @@
 | **date** | **Time** |  | [optional] |
 | **author** | [**Author**](Author.md) |  | [optional] |
 | **message** | **String** |  | [optional] |
-| **summary** | [**IssueContent**](IssueContent.md) |  | [optional] |
+| **summary** | [**BaseCommitSummary**](BaseCommitSummary.md) |  | [optional] |
 | **parents** | [**Array&lt;BaseCommit&gt;**](BaseCommit.md) |  | [optional] |
 
 ## Example

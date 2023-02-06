@@ -20,7 +20,7 @@ module Bitbucket
       @api_client = api_client
     end
     # Get the branching model for a repository
-    # Return the branching model as applied to the repository. This view is read-only. The branching model settings can be changed using the [settings](branching-model/settings#get) API.  The returned object:  1. Always has a `development` property. `development.branch` contains    the actual repository branch object that is considered to be the    `development` branch. `development.branch` will not be present    if it does not exist. 2. Might have a `production` property. `production` will not    be present when `production` is disabled.    `production.branch` contains the actual branch object that is    considered to be the `production` branch. `production.branch` will    not be present if it does not exist. 3. Always has a `branch_types` array which contains all enabled branch    types.  Example body:  ``` {   \"development\": {     \"name\": \"master\",     \"branch\": {       \"type\": \"branch\",       \"name\": \"master\",       \"target\": {         \"hash\": \"16dffcb0de1b22e249db6799532074cf32efe80f\"       }     },     \"use_mainbranch\": true   },   \"production\": {     \"name\": \"production\",     \"branch\": {       \"type\": \"branch\",       \"name\": \"production\",       \"target\": {         \"hash\": \"16dffcb0de1b22e249db6799532074cf32efe80f\"       }     },     \"use_mainbranch\": false   },   \"branch_types\": [     {       \"kind\": \"release\",       \"prefix\": \"release/\"     },     {       \"kind\": \"hotfix\",       \"prefix\": \"hotfix/\"     },     {       \"kind\": \"feature\",       \"prefix\": \"feature/\"     },     {       \"kind\": \"bugfix\",       \"prefix\": \"bugfix/\"     }   ],   \"type\": \"branching_model\",   \"links\": {     \"self\": {       \"href\": \"https://api.bitbucket.org/.../branching-model\"     }   } } ```
+    # Return the branching model as applied to the repository. This view is read-only. The branching model settings can be changed using the [settings](#api-repositories-workspace-repo-slug-branching-model-settings-get) API.  The returned object:  1. Always has a `development` property. `development.branch` contains    the actual repository branch object that is considered to be the    `development` branch. `development.branch` will not be present    if it does not exist. 2. Might have a `production` property. `production` will not    be present when `production` is disabled.    `production.branch` contains the actual branch object that is    considered to be the `production` branch. `production.branch` will    not be present if it does not exist. 3. Always has a `branch_types` array which contains all enabled branch    types.  Example body:  ``` {   \"development\": {     \"name\": \"master\",     \"branch\": {       \"type\": \"branch\",       \"name\": \"master\",       \"target\": {         \"hash\": \"16dffcb0de1b22e249db6799532074cf32efe80f\"       }     },     \"use_mainbranch\": true   },   \"production\": {     \"name\": \"production\",     \"branch\": {       \"type\": \"branch\",       \"name\": \"production\",       \"target\": {         \"hash\": \"16dffcb0de1b22e249db6799532074cf32efe80f\"       }     },     \"use_mainbranch\": false   },   \"branch_types\": [     {       \"kind\": \"release\",       \"prefix\": \"release/\"     },     {       \"kind\": \"hotfix\",       \"prefix\": \"hotfix/\"     },     {       \"kind\": \"feature\",       \"prefix\": \"feature/\"     },     {       \"kind\": \"bugfix\",       \"prefix\": \"bugfix/\"     }   ],   \"type\": \"branching_model\",   \"links\": {     \"self\": {       \"href\": \"https://api.bitbucket.org/.../branching-model\"     }   } } ```
     # @param repo_slug [String] This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;. 
     # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
     # @param [Hash] opts the optional parameters
@@ -31,7 +31,7 @@ module Bitbucket
     end
 
     # Get the branching model for a repository
-    # Return the branching model as applied to the repository. This view is read-only. The branching model settings can be changed using the [settings](branching-model/settings#get) API.  The returned object:  1. Always has a &#x60;development&#x60; property. &#x60;development.branch&#x60; contains    the actual repository branch object that is considered to be the    &#x60;development&#x60; branch. &#x60;development.branch&#x60; will not be present    if it does not exist. 2. Might have a &#x60;production&#x60; property. &#x60;production&#x60; will not    be present when &#x60;production&#x60; is disabled.    &#x60;production.branch&#x60; contains the actual branch object that is    considered to be the &#x60;production&#x60; branch. &#x60;production.branch&#x60; will    not be present if it does not exist. 3. Always has a &#x60;branch_types&#x60; array which contains all enabled branch    types.  Example body:  &#x60;&#x60;&#x60; {   \&quot;development\&quot;: {     \&quot;name\&quot;: \&quot;master\&quot;,     \&quot;branch\&quot;: {       \&quot;type\&quot;: \&quot;branch\&quot;,       \&quot;name\&quot;: \&quot;master\&quot;,       \&quot;target\&quot;: {         \&quot;hash\&quot;: \&quot;16dffcb0de1b22e249db6799532074cf32efe80f\&quot;       }     },     \&quot;use_mainbranch\&quot;: true   },   \&quot;production\&quot;: {     \&quot;name\&quot;: \&quot;production\&quot;,     \&quot;branch\&quot;: {       \&quot;type\&quot;: \&quot;branch\&quot;,       \&quot;name\&quot;: \&quot;production\&quot;,       \&quot;target\&quot;: {         \&quot;hash\&quot;: \&quot;16dffcb0de1b22e249db6799532074cf32efe80f\&quot;       }     },     \&quot;use_mainbranch\&quot;: false   },   \&quot;branch_types\&quot;: [     {       \&quot;kind\&quot;: \&quot;release\&quot;,       \&quot;prefix\&quot;: \&quot;release/\&quot;     },     {       \&quot;kind\&quot;: \&quot;hotfix\&quot;,       \&quot;prefix\&quot;: \&quot;hotfix/\&quot;     },     {       \&quot;kind\&quot;: \&quot;feature\&quot;,       \&quot;prefix\&quot;: \&quot;feature/\&quot;     },     {       \&quot;kind\&quot;: \&quot;bugfix\&quot;,       \&quot;prefix\&quot;: \&quot;bugfix/\&quot;     }   ],   \&quot;type\&quot;: \&quot;branching_model\&quot;,   \&quot;links\&quot;: {     \&quot;self\&quot;: {       \&quot;href\&quot;: \&quot;https://api.bitbucket.org/.../branching-model\&quot;     }   } } &#x60;&#x60;&#x60;
+    # Return the branching model as applied to the repository. This view is read-only. The branching model settings can be changed using the [settings](#api-repositories-workspace-repo-slug-branching-model-settings-get) API.  The returned object:  1. Always has a &#x60;development&#x60; property. &#x60;development.branch&#x60; contains    the actual repository branch object that is considered to be the    &#x60;development&#x60; branch. &#x60;development.branch&#x60; will not be present    if it does not exist. 2. Might have a &#x60;production&#x60; property. &#x60;production&#x60; will not    be present when &#x60;production&#x60; is disabled.    &#x60;production.branch&#x60; contains the actual branch object that is    considered to be the &#x60;production&#x60; branch. &#x60;production.branch&#x60; will    not be present if it does not exist. 3. Always has a &#x60;branch_types&#x60; array which contains all enabled branch    types.  Example body:  &#x60;&#x60;&#x60; {   \&quot;development\&quot;: {     \&quot;name\&quot;: \&quot;master\&quot;,     \&quot;branch\&quot;: {       \&quot;type\&quot;: \&quot;branch\&quot;,       \&quot;name\&quot;: \&quot;master\&quot;,       \&quot;target\&quot;: {         \&quot;hash\&quot;: \&quot;16dffcb0de1b22e249db6799532074cf32efe80f\&quot;       }     },     \&quot;use_mainbranch\&quot;: true   },   \&quot;production\&quot;: {     \&quot;name\&quot;: \&quot;production\&quot;,     \&quot;branch\&quot;: {       \&quot;type\&quot;: \&quot;branch\&quot;,       \&quot;name\&quot;: \&quot;production\&quot;,       \&quot;target\&quot;: {         \&quot;hash\&quot;: \&quot;16dffcb0de1b22e249db6799532074cf32efe80f\&quot;       }     },     \&quot;use_mainbranch\&quot;: false   },   \&quot;branch_types\&quot;: [     {       \&quot;kind\&quot;: \&quot;release\&quot;,       \&quot;prefix\&quot;: \&quot;release/\&quot;     },     {       \&quot;kind\&quot;: \&quot;hotfix\&quot;,       \&quot;prefix\&quot;: \&quot;hotfix/\&quot;     },     {       \&quot;kind\&quot;: \&quot;feature\&quot;,       \&quot;prefix\&quot;: \&quot;feature/\&quot;     },     {       \&quot;kind\&quot;: \&quot;bugfix\&quot;,       \&quot;prefix\&quot;: \&quot;bugfix/\&quot;     }   ],   \&quot;type\&quot;: \&quot;branching_model\&quot;,   \&quot;links\&quot;: {     \&quot;self\&quot;: {       \&quot;href\&quot;: \&quot;https://api.bitbucket.org/.../branching-model\&quot;     }   } } &#x60;&#x60;&#x60;
     # @param repo_slug [String] This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;. 
     # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
     # @param [Hash] opts the optional parameters
@@ -222,6 +222,282 @@ module Bitbucket
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BranchingModelApi#repositories_workspace_repo_slug_branching_model_settings_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the effective, or currently applied, branching model for a repository
+    # 
+    # @param repo_slug [String] This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [EffectiveRepoBranchingModel]
+    def repositories_workspace_repo_slug_effective_branching_model_get(repo_slug, workspace, opts = {})
+      data, _status_code, _headers = repositories_workspace_repo_slug_effective_branching_model_get_with_http_info(repo_slug, workspace, opts)
+      data
+    end
+
+    # Get the effective, or currently applied, branching model for a repository
+    # 
+    # @param repo_slug [String] This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EffectiveRepoBranchingModel, Integer, Hash)>] EffectiveRepoBranchingModel data, response status code and response headers
+    def repositories_workspace_repo_slug_effective_branching_model_get_with_http_info(repo_slug, workspace, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BranchingModelApi.repositories_workspace_repo_slug_effective_branching_model_get ...'
+      end
+      # verify the required parameter 'repo_slug' is set
+      if @api_client.config.client_side_validation && repo_slug.nil?
+        fail ArgumentError, "Missing the required parameter 'repo_slug' when calling BranchingModelApi.repositories_workspace_repo_slug_effective_branching_model_get"
+      end
+      # verify the required parameter 'workspace' is set
+      if @api_client.config.client_side_validation && workspace.nil?
+        fail ArgumentError, "Missing the required parameter 'workspace' when calling BranchingModelApi.repositories_workspace_repo_slug_effective_branching_model_get"
+      end
+      # resource path
+      local_var_path = '/repositories/{workspace}/{repo_slug}/effective-branching-model'.sub('{' + 'repo_slug' + '}', CGI.escape(repo_slug.to_s)).sub('{' + 'workspace' + '}', CGI.escape(workspace.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EffectiveRepoBranchingModel'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'basic', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"BranchingModelApi.repositories_workspace_repo_slug_effective_branching_model_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BranchingModelApi#repositories_workspace_repo_slug_effective_branching_model_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the branching model for a project
+    # Return the branching model set at the project level. This view is read-only. The branching model settings can be changed using the [settings](#api-workspaces-workspace-projects-project-key-branching-model-settings-get) API.  The returned object:  1. Always has a `development` property. `development.name` is    the user-specified branch that can be inherited by an individual repository's    branching model. 2. Might have a `production` property. `production` will not    be present when `production` is disabled.    `production.name` is the user-specified branch that can be    inherited by an individual repository's branching model. 3. Always has a `branch_types` array which contains all enabled branch    types.  Example body:  ``` {   \"development\": {     \"name\": \"master\",     \"use_mainbranch\": true   },   \"production\": {     \"name\": \"production\",     \"use_mainbranch\": false   },   \"branch_types\": [     {       \"kind\": \"release\",       \"prefix\": \"release/\"     },     {       \"kind\": \"hotfix\",       \"prefix\": \"hotfix/\"     },     {       \"kind\": \"feature\",       \"prefix\": \"feature/\"     },     {       \"kind\": \"bugfix\",       \"prefix\": \"bugfix/\"     }   ],   \"type\": \"project_branching_model\",   \"links\": {     \"self\": {       \"href\": \"https://api.bitbucket.org/.../branching-model\"     }   } } ```
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [ProjectBranchingModel]
+    def workspaces_workspace_projects_project_key_branching_model_get(project_key, workspace, opts = {})
+      data, _status_code, _headers = workspaces_workspace_projects_project_key_branching_model_get_with_http_info(project_key, workspace, opts)
+      data
+    end
+
+    # Get the branching model for a project
+    # Return the branching model set at the project level. This view is read-only. The branching model settings can be changed using the [settings](#api-workspaces-workspace-projects-project-key-branching-model-settings-get) API.  The returned object:  1. Always has a &#x60;development&#x60; property. &#x60;development.name&#x60; is    the user-specified branch that can be inherited by an individual repository&#39;s    branching model. 2. Might have a &#x60;production&#x60; property. &#x60;production&#x60; will not    be present when &#x60;production&#x60; is disabled.    &#x60;production.name&#x60; is the user-specified branch that can be    inherited by an individual repository&#39;s branching model. 3. Always has a &#x60;branch_types&#x60; array which contains all enabled branch    types.  Example body:  &#x60;&#x60;&#x60; {   \&quot;development\&quot;: {     \&quot;name\&quot;: \&quot;master\&quot;,     \&quot;use_mainbranch\&quot;: true   },   \&quot;production\&quot;: {     \&quot;name\&quot;: \&quot;production\&quot;,     \&quot;use_mainbranch\&quot;: false   },   \&quot;branch_types\&quot;: [     {       \&quot;kind\&quot;: \&quot;release\&quot;,       \&quot;prefix\&quot;: \&quot;release/\&quot;     },     {       \&quot;kind\&quot;: \&quot;hotfix\&quot;,       \&quot;prefix\&quot;: \&quot;hotfix/\&quot;     },     {       \&quot;kind\&quot;: \&quot;feature\&quot;,       \&quot;prefix\&quot;: \&quot;feature/\&quot;     },     {       \&quot;kind\&quot;: \&quot;bugfix\&quot;,       \&quot;prefix\&quot;: \&quot;bugfix/\&quot;     }   ],   \&quot;type\&quot;: \&quot;project_branching_model\&quot;,   \&quot;links\&quot;: {     \&quot;self\&quot;: {       \&quot;href\&quot;: \&quot;https://api.bitbucket.org/.../branching-model\&quot;     }   } } &#x60;&#x60;&#x60;
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ProjectBranchingModel, Integer, Hash)>] ProjectBranchingModel data, response status code and response headers
+    def workspaces_workspace_projects_project_key_branching_model_get_with_http_info(project_key, workspace, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BranchingModelApi.workspaces_workspace_projects_project_key_branching_model_get ...'
+      end
+      # verify the required parameter 'project_key' is set
+      if @api_client.config.client_side_validation && project_key.nil?
+        fail ArgumentError, "Missing the required parameter 'project_key' when calling BranchingModelApi.workspaces_workspace_projects_project_key_branching_model_get"
+      end
+      # verify the required parameter 'workspace' is set
+      if @api_client.config.client_side_validation && workspace.nil?
+        fail ArgumentError, "Missing the required parameter 'workspace' when calling BranchingModelApi.workspaces_workspace_projects_project_key_branching_model_get"
+      end
+      # resource path
+      local_var_path = '/workspaces/{workspace}/projects/{project_key}/branching-model'.sub('{' + 'project_key' + '}', CGI.escape(project_key.to_s)).sub('{' + 'workspace' + '}', CGI.escape(workspace.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProjectBranchingModel'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'basic', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"BranchingModelApi.workspaces_workspace_projects_project_key_branching_model_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BranchingModelApi#workspaces_workspace_projects_project_key_branching_model_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the branching model config for a project
+    # Return the branching model configuration for a project. The returned object:  1. Always has a `development` property for the development branch. 2. Always a `production` property for the production branch. The    production branch can be disabled. 3. The `branch_types` contains all the branch types.   This is the raw configuration for the branching model. A client wishing to see the branching model with its actual current branches may find the [active model API](#api-workspaces-workspace-projects-project-key-branching-model-get) more useful.  Example body:  ``` {   \"development\": {     \"name\": null,     \"use_mainbranch\": true   },   \"production\": {     \"name\": \"production\",     \"use_mainbranch\": false,     \"enabled\": false   },   \"branch_types\": [     {       \"kind\": \"release\",       \"enabled\": true,       \"prefix\": \"release/\"     },     {       \"kind\": \"hotfix\",       \"enabled\": true,       \"prefix\": \"hotfix/\"     },     {       \"kind\": \"feature\",       \"enabled\": true,       \"prefix\": \"feature/\"     },     {       \"kind\": \"bugfix\",       \"enabled\": false,       \"prefix\": \"bugfix/\"     }   ],   \"type\": \"branching_model_settings\",   \"links\": {     \"self\": {       \"href\": \"https://api.bitbucket.org/.../branching-model/settings\"     }   } } ```
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [BranchingModelSettings]
+    def workspaces_workspace_projects_project_key_branching_model_settings_get(project_key, workspace, opts = {})
+      data, _status_code, _headers = workspaces_workspace_projects_project_key_branching_model_settings_get_with_http_info(project_key, workspace, opts)
+      data
+    end
+
+    # Get the branching model config for a project
+    # Return the branching model configuration for a project. The returned object:  1. Always has a &#x60;development&#x60; property for the development branch. 2. Always a &#x60;production&#x60; property for the production branch. The    production branch can be disabled. 3. The &#x60;branch_types&#x60; contains all the branch types.   This is the raw configuration for the branching model. A client wishing to see the branching model with its actual current branches may find the [active model API](#api-workspaces-workspace-projects-project-key-branching-model-get) more useful.  Example body:  &#x60;&#x60;&#x60; {   \&quot;development\&quot;: {     \&quot;name\&quot;: null,     \&quot;use_mainbranch\&quot;: true   },   \&quot;production\&quot;: {     \&quot;name\&quot;: \&quot;production\&quot;,     \&quot;use_mainbranch\&quot;: false,     \&quot;enabled\&quot;: false   },   \&quot;branch_types\&quot;: [     {       \&quot;kind\&quot;: \&quot;release\&quot;,       \&quot;enabled\&quot;: true,       \&quot;prefix\&quot;: \&quot;release/\&quot;     },     {       \&quot;kind\&quot;: \&quot;hotfix\&quot;,       \&quot;enabled\&quot;: true,       \&quot;prefix\&quot;: \&quot;hotfix/\&quot;     },     {       \&quot;kind\&quot;: \&quot;feature\&quot;,       \&quot;enabled\&quot;: true,       \&quot;prefix\&quot;: \&quot;feature/\&quot;     },     {       \&quot;kind\&quot;: \&quot;bugfix\&quot;,       \&quot;enabled\&quot;: false,       \&quot;prefix\&quot;: \&quot;bugfix/\&quot;     }   ],   \&quot;type\&quot;: \&quot;branching_model_settings\&quot;,   \&quot;links\&quot;: {     \&quot;self\&quot;: {       \&quot;href\&quot;: \&quot;https://api.bitbucket.org/.../branching-model/settings\&quot;     }   } } &#x60;&#x60;&#x60;
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(BranchingModelSettings, Integer, Hash)>] BranchingModelSettings data, response status code and response headers
+    def workspaces_workspace_projects_project_key_branching_model_settings_get_with_http_info(project_key, workspace, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BranchingModelApi.workspaces_workspace_projects_project_key_branching_model_settings_get ...'
+      end
+      # verify the required parameter 'project_key' is set
+      if @api_client.config.client_side_validation && project_key.nil?
+        fail ArgumentError, "Missing the required parameter 'project_key' when calling BranchingModelApi.workspaces_workspace_projects_project_key_branching_model_settings_get"
+      end
+      # verify the required parameter 'workspace' is set
+      if @api_client.config.client_side_validation && workspace.nil?
+        fail ArgumentError, "Missing the required parameter 'workspace' when calling BranchingModelApi.workspaces_workspace_projects_project_key_branching_model_settings_get"
+      end
+      # resource path
+      local_var_path = '/workspaces/{workspace}/projects/{project_key}/branching-model/settings'.sub('{' + 'project_key' + '}', CGI.escape(project_key.to_s)).sub('{' + 'workspace' + '}', CGI.escape(workspace.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'BranchingModelSettings'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'basic', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"BranchingModelApi.workspaces_workspace_projects_project_key_branching_model_settings_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BranchingModelApi#workspaces_workspace_projects_project_key_branching_model_settings_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update the branching model config for a project
+    # Update the branching model configuration for a project.  The `development` branch can be configured to a specific branch or to track the main branch. Any branch name can be supplied, but will only successfully be applied to a repository via inheritance if that branch exists for that repository. Only the passed properties will be updated. The properties not passed will be left unchanged. A request without a `development` property will leave the development branch unchanged.  The `production` branch can be a specific branch, the main branch or disabled. Any branch name can be supplied, but will only successfully be applied to a repository via inheritance if that branch exists for that repository. The `enabled` property can be used to enable (`true`) or disable (`false`) it. Only the passed properties will be updated. The properties not passed will be left unchanged. A request without a `production` property will leave the production branch unchanged.  The `branch_types` property contains the branch types to be updated. Only the branch types passed will be updated. All updates will be rejected if it would leave the branching model in an invalid state. For branch types this means that:  1. The prefixes for all enabled branch types are valid. For example,    it is not possible to use '*' inside a Git prefix. 2. A prefix of an enabled branch type must not be a prefix of another    enabled branch type. This is to ensure that a branch can be easily    classified by its prefix unambiguously.  It is possible to store an invalid prefix if that branch type would be left disabled. Only the passed properties will be updated. The properties not passed will be left unchanged. Each branch type must have a `kind` property to identify it.  Example Body:  ```     {       \"development\": {         \"use_mainbranch\": true       },       \"production\": {         \"enabled\": true,         \"use_mainbranch\": false,         \"name\": \"production\"       },       \"branch_types\": [         {           \"kind\": \"bugfix\",           \"enabled\": true,           \"prefix\": \"bugfix/\"         },         {           \"kind\": \"feature\",           \"enabled\": true,           \"prefix\": \"feature/\"         },         {           \"kind\": \"hotfix\",           \"prefix\": \"hotfix/\"         },         {           \"kind\": \"release\",           \"enabled\": false,         }       ]     } ```
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [BranchingModelSettings]
+    def workspaces_workspace_projects_project_key_branching_model_settings_put(project_key, workspace, opts = {})
+      data, _status_code, _headers = workspaces_workspace_projects_project_key_branching_model_settings_put_with_http_info(project_key, workspace, opts)
+      data
+    end
+
+    # Update the branching model config for a project
+    # Update the branching model configuration for a project.  The &#x60;development&#x60; branch can be configured to a specific branch or to track the main branch. Any branch name can be supplied, but will only successfully be applied to a repository via inheritance if that branch exists for that repository. Only the passed properties will be updated. The properties not passed will be left unchanged. A request without a &#x60;development&#x60; property will leave the development branch unchanged.  The &#x60;production&#x60; branch can be a specific branch, the main branch or disabled. Any branch name can be supplied, but will only successfully be applied to a repository via inheritance if that branch exists for that repository. The &#x60;enabled&#x60; property can be used to enable (&#x60;true&#x60;) or disable (&#x60;false&#x60;) it. Only the passed properties will be updated. The properties not passed will be left unchanged. A request without a &#x60;production&#x60; property will leave the production branch unchanged.  The &#x60;branch_types&#x60; property contains the branch types to be updated. Only the branch types passed will be updated. All updates will be rejected if it would leave the branching model in an invalid state. For branch types this means that:  1. The prefixes for all enabled branch types are valid. For example,    it is not possible to use &#39;*&#39; inside a Git prefix. 2. A prefix of an enabled branch type must not be a prefix of another    enabled branch type. This is to ensure that a branch can be easily    classified by its prefix unambiguously.  It is possible to store an invalid prefix if that branch type would be left disabled. Only the passed properties will be updated. The properties not passed will be left unchanged. Each branch type must have a &#x60;kind&#x60; property to identify it.  Example Body:  &#x60;&#x60;&#x60;     {       \&quot;development\&quot;: {         \&quot;use_mainbranch\&quot;: true       },       \&quot;production\&quot;: {         \&quot;enabled\&quot;: true,         \&quot;use_mainbranch\&quot;: false,         \&quot;name\&quot;: \&quot;production\&quot;       },       \&quot;branch_types\&quot;: [         {           \&quot;kind\&quot;: \&quot;bugfix\&quot;,           \&quot;enabled\&quot;: true,           \&quot;prefix\&quot;: \&quot;bugfix/\&quot;         },         {           \&quot;kind\&quot;: \&quot;feature\&quot;,           \&quot;enabled\&quot;: true,           \&quot;prefix\&quot;: \&quot;feature/\&quot;         },         {           \&quot;kind\&quot;: \&quot;hotfix\&quot;,           \&quot;prefix\&quot;: \&quot;hotfix/\&quot;         },         {           \&quot;kind\&quot;: \&quot;release\&quot;,           \&quot;enabled\&quot;: false,         }       ]     } &#x60;&#x60;&#x60;
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(BranchingModelSettings, Integer, Hash)>] BranchingModelSettings data, response status code and response headers
+    def workspaces_workspace_projects_project_key_branching_model_settings_put_with_http_info(project_key, workspace, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BranchingModelApi.workspaces_workspace_projects_project_key_branching_model_settings_put ...'
+      end
+      # verify the required parameter 'project_key' is set
+      if @api_client.config.client_side_validation && project_key.nil?
+        fail ArgumentError, "Missing the required parameter 'project_key' when calling BranchingModelApi.workspaces_workspace_projects_project_key_branching_model_settings_put"
+      end
+      # verify the required parameter 'workspace' is set
+      if @api_client.config.client_side_validation && workspace.nil?
+        fail ArgumentError, "Missing the required parameter 'workspace' when calling BranchingModelApi.workspaces_workspace_projects_project_key_branching_model_settings_put"
+      end
+      # resource path
+      local_var_path = '/workspaces/{workspace}/projects/{project_key}/branching-model/settings'.sub('{' + 'project_key' + '}', CGI.escape(project_key.to_s)).sub('{' + 'workspace' + '}', CGI.escape(workspace.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'BranchingModelSettings'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'basic', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"BranchingModelApi.workspaces_workspace_projects_project_key_branching_model_settings_put",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BranchingModelApi#workspaces_workspace_projects_project_key_branching_model_settings_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

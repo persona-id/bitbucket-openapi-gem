@@ -34,7 +34,7 @@ describe Bitbucket::RepositoryUserPermission do
   describe 'test attribute "permission"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["admin", "write", "read", "none"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["read", "write", "admin", "none"])
       # validator.allowable_values.each do |value|
       #   expect { instance.permission = value }.not_to raise_error
       # end

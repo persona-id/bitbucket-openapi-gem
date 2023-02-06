@@ -17,6 +17,7 @@ All URIs are relative to *https://api.bitbucket.org/2.0*
 | [**delete_pipeline_variable_for_user**](PipelinesApi.md#delete_pipeline_variable_for_user) | **DELETE** /users/{selected_user}/pipelines_config/variables/{variable_uuid} | Delete a variable for a user |
 | [**delete_pipeline_variable_for_workspace**](PipelinesApi.md#delete_pipeline_variable_for_workspace) | **DELETE** /workspaces/{workspace}/pipelines-config/variables/{variable_uuid} | Delete a variable for a workspace |
 | [**delete_repository_pipeline_cache**](PipelinesApi.md#delete_repository_pipeline_cache) | **DELETE** /repositories/{workspace}/{repo_slug}/pipelines-config/caches/{cache_uuid} | Delete a cache |
+| [**delete_repository_pipeline_caches**](PipelinesApi.md#delete_repository_pipeline_caches) | **DELETE** /repositories/{workspace}/{repo_slug}/pipelines-config/caches | Delete caches |
 | [**delete_repository_pipeline_key_pair**](PipelinesApi.md#delete_repository_pipeline_key_pair) | **DELETE** /repositories/{workspace}/{repo_slug}/pipelines_config/ssh/key_pair | Delete SSH key pair |
 | [**delete_repository_pipeline_known_host**](PipelinesApi.md#delete_repository_pipeline_known_host) | **DELETE** /repositories/{workspace}/{repo_slug}/pipelines_config/ssh/known_hosts/{known_host_uuid} | Delete a known host |
 | [**delete_repository_pipeline_schedule**](PipelinesApi.md#delete_repository_pipeline_schedule) | **DELETE** /repositories/{workspace}/{repo_slug}/pipelines_config/schedules/{schedule_uuid} | Delete a schedule |
@@ -925,6 +926,73 @@ end
 | **workspace** | **String** | The account. |  |
 | **repo_slug** | **String** | The repository. |  |
 | **cache_uuid** | **String** | The UUID of the cache to delete. |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## delete_repository_pipeline_caches
+
+> delete_repository_pipeline_caches(workspace, repo_slug, name)
+
+Delete caches
+
+Delete repository cache versions by name.
+
+### Examples
+
+```ruby
+require 'time'
+require 'bitbucket'
+
+api_instance = Bitbucket::PipelinesApi.new
+workspace = 'workspace_example' # String | The account.
+repo_slug = 'repo_slug_example' # String | The repository.
+name = 'name_example' # String | The cache name.
+
+begin
+  # Delete caches
+  api_instance.delete_repository_pipeline_caches(workspace, repo_slug, name)
+rescue Bitbucket::ApiError => e
+  puts "Error when calling PipelinesApi->delete_repository_pipeline_caches: #{e}"
+end
+```
+
+#### Using the delete_repository_pipeline_caches_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_repository_pipeline_caches_with_http_info(workspace, repo_slug, name)
+
+```ruby
+begin
+  # Delete caches
+  data, status_code, headers = api_instance.delete_repository_pipeline_caches_with_http_info(workspace, repo_slug, name)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Bitbucket::ApiError => e
+  puts "Error when calling PipelinesApi->delete_repository_pipeline_caches_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **workspace** | **String** | The account. |  |
+| **repo_slug** | **String** | The repository. |  |
+| **name** | **String** | The cache name. |  |
 
 ### Return type
 

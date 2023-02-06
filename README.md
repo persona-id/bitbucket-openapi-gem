@@ -107,6 +107,10 @@ Class | Method | HTTP request | Description
 *Bitbucket::BranchingModelApi* | [**repositories_workspace_repo_slug_branching_model_get**](docs/BranchingModelApi.md#repositories_workspace_repo_slug_branching_model_get) | **GET** /repositories/{workspace}/{repo_slug}/branching-model | Get the branching model for a repository
 *Bitbucket::BranchingModelApi* | [**repositories_workspace_repo_slug_branching_model_settings_get**](docs/BranchingModelApi.md#repositories_workspace_repo_slug_branching_model_settings_get) | **GET** /repositories/{workspace}/{repo_slug}/branching-model/settings | Get the branching model config for a repository
 *Bitbucket::BranchingModelApi* | [**repositories_workspace_repo_slug_branching_model_settings_put**](docs/BranchingModelApi.md#repositories_workspace_repo_slug_branching_model_settings_put) | **PUT** /repositories/{workspace}/{repo_slug}/branching-model/settings | Update the branching model config for a repository
+*Bitbucket::BranchingModelApi* | [**repositories_workspace_repo_slug_effective_branching_model_get**](docs/BranchingModelApi.md#repositories_workspace_repo_slug_effective_branching_model_get) | **GET** /repositories/{workspace}/{repo_slug}/effective-branching-model | Get the effective, or currently applied, branching model for a repository
+*Bitbucket::BranchingModelApi* | [**workspaces_workspace_projects_project_key_branching_model_get**](docs/BranchingModelApi.md#workspaces_workspace_projects_project_key_branching_model_get) | **GET** /workspaces/{workspace}/projects/{project_key}/branching-model | Get the branching model for a project
+*Bitbucket::BranchingModelApi* | [**workspaces_workspace_projects_project_key_branching_model_settings_get**](docs/BranchingModelApi.md#workspaces_workspace_projects_project_key_branching_model_settings_get) | **GET** /workspaces/{workspace}/projects/{project_key}/branching-model/settings | Get the branching model config for a project
+*Bitbucket::BranchingModelApi* | [**workspaces_workspace_projects_project_key_branching_model_settings_put**](docs/BranchingModelApi.md#workspaces_workspace_projects_project_key_branching_model_settings_put) | **PUT** /workspaces/{workspace}/projects/{project_key}/branching-model/settings | Update the branching model config for a project
 *Bitbucket::CommitStatusesApi* | [**repositories_workspace_repo_slug_commit_commit_statuses_build_key_get**](docs/CommitStatusesApi.md#repositories_workspace_repo_slug_commit_commit_statuses_build_key_get) | **GET** /repositories/{workspace}/{repo_slug}/commit/{commit}/statuses/build/{key} | Get a build status for a commit
 *Bitbucket::CommitStatusesApi* | [**repositories_workspace_repo_slug_commit_commit_statuses_build_key_put**](docs/CommitStatusesApi.md#repositories_workspace_repo_slug_commit_commit_statuses_build_key_put) | **PUT** /repositories/{workspace}/{repo_slug}/commit/{commit}/statuses/build/{key} | Update a build status for a commit
 *Bitbucket::CommitStatusesApi* | [**repositories_workspace_repo_slug_commit_commit_statuses_build_post**](docs/CommitStatusesApi.md#repositories_workspace_repo_slug_commit_commit_statuses_build_post) | **POST** /repositories/{workspace}/{repo_slug}/commit/{commit}/statuses/build | Create a build status for a commit
@@ -141,12 +145,16 @@ Class | Method | HTTP request | Description
 *Bitbucket::DeploymentsApi* | [**get_deployments_for_repository**](docs/DeploymentsApi.md#get_deployments_for_repository) | **GET** /repositories/{workspace}/{repo_slug}/deployments/ | List deployments
 *Bitbucket::DeploymentsApi* | [**get_environment_for_repository**](docs/DeploymentsApi.md#get_environment_for_repository) | **GET** /repositories/{workspace}/{repo_slug}/environments/{environment_uuid} | Get an environment
 *Bitbucket::DeploymentsApi* | [**get_environments_for_repository**](docs/DeploymentsApi.md#get_environments_for_repository) | **GET** /repositories/{workspace}/{repo_slug}/environments/ | List environments
-*Bitbucket::DeploymentsApi* | [**repositories_workspace_repo_slug_deploy_keys_get**](docs/DeploymentsApi.md#repositories_workspace_repo_slug_deploy_keys_get) | **GET** /repositories/{workspace}/{repo_slug}/deploy-keys | List deploy keys
-*Bitbucket::DeploymentsApi* | [**repositories_workspace_repo_slug_deploy_keys_key_id_delete**](docs/DeploymentsApi.md#repositories_workspace_repo_slug_deploy_keys_key_id_delete) | **DELETE** /repositories/{workspace}/{repo_slug}/deploy-keys/{key_id} | Delete a deploy key
-*Bitbucket::DeploymentsApi* | [**repositories_workspace_repo_slug_deploy_keys_key_id_get**](docs/DeploymentsApi.md#repositories_workspace_repo_slug_deploy_keys_key_id_get) | **GET** /repositories/{workspace}/{repo_slug}/deploy-keys/{key_id} | Get a deploy key
-*Bitbucket::DeploymentsApi* | [**repositories_workspace_repo_slug_deploy_keys_key_id_put**](docs/DeploymentsApi.md#repositories_workspace_repo_slug_deploy_keys_key_id_put) | **PUT** /repositories/{workspace}/{repo_slug}/deploy-keys/{key_id} | Update a deploy key
-*Bitbucket::DeploymentsApi* | [**repositories_workspace_repo_slug_deploy_keys_post**](docs/DeploymentsApi.md#repositories_workspace_repo_slug_deploy_keys_post) | **POST** /repositories/{workspace}/{repo_slug}/deploy-keys | Add a deploy key
+*Bitbucket::DeploymentsApi* | [**repositories_workspace_repo_slug_deploy_keys_get**](docs/DeploymentsApi.md#repositories_workspace_repo_slug_deploy_keys_get) | **GET** /repositories/{workspace}/{repo_slug}/deploy-keys | List repository deploy keys
+*Bitbucket::DeploymentsApi* | [**repositories_workspace_repo_slug_deploy_keys_key_id_delete**](docs/DeploymentsApi.md#repositories_workspace_repo_slug_deploy_keys_key_id_delete) | **DELETE** /repositories/{workspace}/{repo_slug}/deploy-keys/{key_id} | Delete a repository deploy key
+*Bitbucket::DeploymentsApi* | [**repositories_workspace_repo_slug_deploy_keys_key_id_get**](docs/DeploymentsApi.md#repositories_workspace_repo_slug_deploy_keys_key_id_get) | **GET** /repositories/{workspace}/{repo_slug}/deploy-keys/{key_id} | Get a repository deploy key
+*Bitbucket::DeploymentsApi* | [**repositories_workspace_repo_slug_deploy_keys_key_id_put**](docs/DeploymentsApi.md#repositories_workspace_repo_slug_deploy_keys_key_id_put) | **PUT** /repositories/{workspace}/{repo_slug}/deploy-keys/{key_id} | Update a repository deploy key
+*Bitbucket::DeploymentsApi* | [**repositories_workspace_repo_slug_deploy_keys_post**](docs/DeploymentsApi.md#repositories_workspace_repo_slug_deploy_keys_post) | **POST** /repositories/{workspace}/{repo_slug}/deploy-keys | Add a repository deploy key
 *Bitbucket::DeploymentsApi* | [**update_environment_for_repository**](docs/DeploymentsApi.md#update_environment_for_repository) | **POST** /repositories/{workspace}/{repo_slug}/environments/{environment_uuid}/changes/ | Update an environment
+*Bitbucket::DeploymentsApi* | [**workspaces_workspace_projects_project_key_deploy_keys_get**](docs/DeploymentsApi.md#workspaces_workspace_projects_project_key_deploy_keys_get) | **GET** /workspaces/{workspace}/projects/{project_key}/deploy-keys | List project deploy keys
+*Bitbucket::DeploymentsApi* | [**workspaces_workspace_projects_project_key_deploy_keys_key_id_delete**](docs/DeploymentsApi.md#workspaces_workspace_projects_project_key_deploy_keys_key_id_delete) | **DELETE** /workspaces/{workspace}/projects/{project_key}/deploy-keys/{key_id} | Delete a deploy key from a project
+*Bitbucket::DeploymentsApi* | [**workspaces_workspace_projects_project_key_deploy_keys_key_id_get**](docs/DeploymentsApi.md#workspaces_workspace_projects_project_key_deploy_keys_key_id_get) | **GET** /workspaces/{workspace}/projects/{project_key}/deploy-keys/{key_id} | Get a project deploy key
+*Bitbucket::DeploymentsApi* | [**workspaces_workspace_projects_project_key_deploy_keys_post**](docs/DeploymentsApi.md#workspaces_workspace_projects_project_key_deploy_keys_post) | **POST** /workspaces/{workspace}/projects/{project_key}/deploy-keys | Create a project deploy key
 *Bitbucket::DownloadsApi* | [**repositories_workspace_repo_slug_downloads_filename_delete**](docs/DownloadsApi.md#repositories_workspace_repo_slug_downloads_filename_delete) | **DELETE** /repositories/{workspace}/{repo_slug}/downloads/{filename} | Delete a download artifact
 *Bitbucket::DownloadsApi* | [**repositories_workspace_repo_slug_downloads_filename_get**](docs/DownloadsApi.md#repositories_workspace_repo_slug_downloads_filename_get) | **GET** /repositories/{workspace}/{repo_slug}/downloads/{filename} | Get a download artifact link
 *Bitbucket::DownloadsApi* | [**repositories_workspace_repo_slug_downloads_get**](docs/DownloadsApi.md#repositories_workspace_repo_slug_downloads_get) | **GET** /repositories/{workspace}/{repo_slug}/downloads | List download artifacts
@@ -197,6 +205,7 @@ Class | Method | HTTP request | Description
 *Bitbucket::PipelinesApi* | [**delete_pipeline_variable_for_user**](docs/PipelinesApi.md#delete_pipeline_variable_for_user) | **DELETE** /users/{selected_user}/pipelines_config/variables/{variable_uuid} | Delete a variable for a user
 *Bitbucket::PipelinesApi* | [**delete_pipeline_variable_for_workspace**](docs/PipelinesApi.md#delete_pipeline_variable_for_workspace) | **DELETE** /workspaces/{workspace}/pipelines-config/variables/{variable_uuid} | Delete a variable for a workspace
 *Bitbucket::PipelinesApi* | [**delete_repository_pipeline_cache**](docs/PipelinesApi.md#delete_repository_pipeline_cache) | **DELETE** /repositories/{workspace}/{repo_slug}/pipelines-config/caches/{cache_uuid} | Delete a cache
+*Bitbucket::PipelinesApi* | [**delete_repository_pipeline_caches**](docs/PipelinesApi.md#delete_repository_pipeline_caches) | **DELETE** /repositories/{workspace}/{repo_slug}/pipelines-config/caches | Delete caches
 *Bitbucket::PipelinesApi* | [**delete_repository_pipeline_key_pair**](docs/PipelinesApi.md#delete_repository_pipeline_key_pair) | **DELETE** /repositories/{workspace}/{repo_slug}/pipelines_config/ssh/key_pair | Delete SSH key pair
 *Bitbucket::PipelinesApi* | [**delete_repository_pipeline_known_host**](docs/PipelinesApi.md#delete_repository_pipeline_known_host) | **DELETE** /repositories/{workspace}/{repo_slug}/pipelines_config/ssh/known_hosts/{known_host_uuid} | Delete a known host
 *Bitbucket::PipelinesApi* | [**delete_repository_pipeline_schedule**](docs/PipelinesApi.md#delete_repository_pipeline_schedule) | **DELETE** /repositories/{workspace}/{repo_slug}/pipelines_config/schedules/{schedule_uuid} | Delete a schedule
@@ -242,6 +251,10 @@ Class | Method | HTTP request | Description
 *Bitbucket::PipelinesApi* | [**update_repository_pipeline_schedule**](docs/PipelinesApi.md#update_repository_pipeline_schedule) | **PUT** /repositories/{workspace}/{repo_slug}/pipelines_config/schedules/{schedule_uuid} | Update a schedule
 *Bitbucket::PipelinesApi* | [**update_repository_pipeline_variable**](docs/PipelinesApi.md#update_repository_pipeline_variable) | **PUT** /repositories/{workspace}/{repo_slug}/pipelines_config/variables/{variable_uuid} | Update a variable for a repository
 *Bitbucket::ProjectsApi* | [**workspaces_workspace_projects_post**](docs/ProjectsApi.md#workspaces_workspace_projects_post) | **POST** /workspaces/{workspace}/projects | Create a project in a workspace
+*Bitbucket::ProjectsApi* | [**workspaces_workspace_projects_project_key_default_reviewers_get**](docs/ProjectsApi.md#workspaces_workspace_projects_project_key_default_reviewers_get) | **GET** /workspaces/{workspace}/projects/{project_key}/default-reviewers | List the default reviewers in a project
+*Bitbucket::ProjectsApi* | [**workspaces_workspace_projects_project_key_default_reviewers_selected_user_delete**](docs/ProjectsApi.md#workspaces_workspace_projects_project_key_default_reviewers_selected_user_delete) | **DELETE** /workspaces/{workspace}/projects/{project_key}/default-reviewers/{selected_user} | Remove the specific user from the project's default reviewers
+*Bitbucket::ProjectsApi* | [**workspaces_workspace_projects_project_key_default_reviewers_selected_user_get**](docs/ProjectsApi.md#workspaces_workspace_projects_project_key_default_reviewers_selected_user_get) | **GET** /workspaces/{workspace}/projects/{project_key}/default-reviewers/{selected_user} | Get a default reviewer
+*Bitbucket::ProjectsApi* | [**workspaces_workspace_projects_project_key_default_reviewers_selected_user_put**](docs/ProjectsApi.md#workspaces_workspace_projects_project_key_default_reviewers_selected_user_put) | **PUT** /workspaces/{workspace}/projects/{project_key}/default-reviewers/{selected_user} | Add the specific user as a default reviewer for the project
 *Bitbucket::ProjectsApi* | [**workspaces_workspace_projects_project_key_delete**](docs/ProjectsApi.md#workspaces_workspace_projects_project_key_delete) | **DELETE** /workspaces/{workspace}/projects/{project_key} | Delete a project for a workspace
 *Bitbucket::ProjectsApi* | [**workspaces_workspace_projects_project_key_get**](docs/ProjectsApi.md#workspaces_workspace_projects_project_key_get) | **GET** /workspaces/{workspace}/projects/{project_key} | Get a project for a workspace
 *Bitbucket::ProjectsApi* | [**workspaces_workspace_projects_project_key_put**](docs/ProjectsApi.md#workspaces_workspace_projects_project_key_put) | **PUT** /workspaces/{workspace}/projects/{project_key} | Update a project for a workspace
@@ -263,6 +276,7 @@ Class | Method | HTTP request | Description
 *Bitbucket::PullrequestsApi* | [**repositories_workspace_repo_slug_default_reviewers_target_username_delete**](docs/PullrequestsApi.md#repositories_workspace_repo_slug_default_reviewers_target_username_delete) | **DELETE** /repositories/{workspace}/{repo_slug}/default-reviewers/{target_username} | Remove a user from the default reviewers
 *Bitbucket::PullrequestsApi* | [**repositories_workspace_repo_slug_default_reviewers_target_username_get**](docs/PullrequestsApi.md#repositories_workspace_repo_slug_default_reviewers_target_username_get) | **GET** /repositories/{workspace}/{repo_slug}/default-reviewers/{target_username} | Get a default reviewer
 *Bitbucket::PullrequestsApi* | [**repositories_workspace_repo_slug_default_reviewers_target_username_put**](docs/PullrequestsApi.md#repositories_workspace_repo_slug_default_reviewers_target_username_put) | **PUT** /repositories/{workspace}/{repo_slug}/default-reviewers/{target_username} | Add a user to the default reviewers
+*Bitbucket::PullrequestsApi* | [**repositories_workspace_repo_slug_effective_default_reviewers_get**](docs/PullrequestsApi.md#repositories_workspace_repo_slug_effective_default_reviewers_get) | **GET** /repositories/{workspace}/{repo_slug}/effective-default-reviewers | List effective default reviewers
 *Bitbucket::PullrequestsApi* | [**repositories_workspace_repo_slug_pullrequests_activity_get**](docs/PullrequestsApi.md#repositories_workspace_repo_slug_pullrequests_activity_get) | **GET** /repositories/{workspace}/{repo_slug}/pullrequests/activity | List a pull request activity log
 *Bitbucket::PullrequestsApi* | [**repositories_workspace_repo_slug_pullrequests_get**](docs/PullrequestsApi.md#repositories_workspace_repo_slug_pullrequests_get) | **GET** /repositories/{workspace}/{repo_slug}/pullrequests | List pull requests
 *Bitbucket::PullrequestsApi* | [**repositories_workspace_repo_slug_pullrequests_post**](docs/PullrequestsApi.md#repositories_workspace_repo_slug_pullrequests_post) | **POST** /repositories/{workspace}/{repo_slug}/pullrequests | Create a pull request
@@ -316,6 +330,8 @@ Class | Method | HTTP request | Description
 *Bitbucket::RepositoriesApi* | [**repositories_workspace_repo_slug_hooks_uid_delete**](docs/RepositoriesApi.md#repositories_workspace_repo_slug_hooks_uid_delete) | **DELETE** /repositories/{workspace}/{repo_slug}/hooks/{uid} | Delete a webhook for a repository
 *Bitbucket::RepositoriesApi* | [**repositories_workspace_repo_slug_hooks_uid_get**](docs/RepositoriesApi.md#repositories_workspace_repo_slug_hooks_uid_get) | **GET** /repositories/{workspace}/{repo_slug}/hooks/{uid} | Get a webhook for a repository
 *Bitbucket::RepositoriesApi* | [**repositories_workspace_repo_slug_hooks_uid_put**](docs/RepositoriesApi.md#repositories_workspace_repo_slug_hooks_uid_put) | **PUT** /repositories/{workspace}/{repo_slug}/hooks/{uid} | Update a webhook for a repository
+*Bitbucket::RepositoriesApi* | [**repositories_workspace_repo_slug_override_settings_get**](docs/RepositoriesApi.md#repositories_workspace_repo_slug_override_settings_get) | **GET** /repositories/{workspace}/{repo_slug}/override-settings | Retrieve the inheritance state for repository settings
+*Bitbucket::RepositoriesApi* | [**repositories_workspace_repo_slug_override_settings_put**](docs/RepositoriesApi.md#repositories_workspace_repo_slug_override_settings_put) | **PUT** /repositories/{workspace}/{repo_slug}/override-settings | Set the inheritance state for repository settings                 
 *Bitbucket::RepositoriesApi* | [**repositories_workspace_repo_slug_permissions_config_groups_get**](docs/RepositoriesApi.md#repositories_workspace_repo_slug_permissions_config_groups_get) | **GET** /repositories/{workspace}/{repo_slug}/permissions-config/groups | List explicit group permissions for a repository
 *Bitbucket::RepositoriesApi* | [**repositories_workspace_repo_slug_permissions_config_groups_group_slug_delete**](docs/RepositoriesApi.md#repositories_workspace_repo_slug_permissions_config_groups_group_slug_delete) | **DELETE** /repositories/{workspace}/{repo_slug}/permissions-config/groups/{group_slug} | Delete an explicit group permission for a repository
 *Bitbucket::RepositoriesApi* | [**repositories_workspace_repo_slug_permissions_config_groups_group_slug_get**](docs/RepositoriesApi.md#repositories_workspace_repo_slug_permissions_config_groups_group_slug_get) | **GET** /repositories/{workspace}/{repo_slug}/permissions-config/groups/{group_slug} | Get an explicit group permission for a repository
@@ -409,6 +425,7 @@ Class | Method | HTTP request | Description
  - [Bitbucket::ApplicationProperty](docs/ApplicationProperty.md)
  - [Bitbucket::Author](docs/Author.md)
  - [Bitbucket::BaseCommit](docs/BaseCommit.md)
+ - [Bitbucket::BaseCommitSummary](docs/BaseCommitSummary.md)
  - [Bitbucket::Branch](docs/Branch.md)
  - [Bitbucket::BranchRestriction](docs/BranchRestriction.md)
  - [Bitbucket::BranchingModel](docs/BranchingModel.md)
@@ -431,6 +448,7 @@ Class | Method | HTTP request | Description
  - [Bitbucket::Commitstatus](docs/Commitstatus.md)
  - [Bitbucket::Component](docs/Component.md)
  - [Bitbucket::DdevReport](docs/DdevReport.md)
+ - [Bitbucket::DefaultReviewerAndType](docs/DefaultReviewerAndType.md)
  - [Bitbucket::DeployKey](docs/DeployKey.md)
  - [Bitbucket::Deployment](docs/Deployment.md)
  - [Bitbucket::DeploymentEnvironment](docs/DeploymentEnvironment.md)
@@ -458,11 +476,12 @@ Class | Method | HTTP request | Description
  - [Bitbucket::DeploymentsStgWestDeploymentEnvironmentLock](docs/DeploymentsStgWestDeploymentEnvironmentLock.md)
  - [Bitbucket::DeploymentsStgWestPaginatedEnvironments](docs/DeploymentsStgWestPaginatedEnvironments.md)
  - [Bitbucket::Diffstat](docs/Diffstat.md)
+ - [Bitbucket::EffectiveRepoBranchingModel](docs/EffectiveRepoBranchingModel.md)
+ - [Bitbucket::EffectiveRepositoryBranchingModel](docs/EffectiveRepositoryBranchingModel.md)
  - [Bitbucket::Error](docs/Error.md)
  - [Bitbucket::ErrorError](docs/ErrorError.md)
  - [Bitbucket::ExportOptions](docs/ExportOptions.md)
  - [Bitbucket::Group](docs/Group.md)
- - [Bitbucket::GroupLinks](docs/GroupLinks.md)
  - [Bitbucket::HookEvent](docs/HookEvent.md)
  - [Bitbucket::Issue](docs/Issue.md)
  - [Bitbucket::IssueAttachment](docs/IssueAttachment.md)
@@ -472,7 +491,6 @@ Class | Method | HTTP request | Description
  - [Bitbucket::IssueChangeLinks](docs/IssueChangeLinks.md)
  - [Bitbucket::IssueChangeMessage](docs/IssueChangeMessage.md)
  - [Bitbucket::IssueComment](docs/IssueComment.md)
- - [Bitbucket::IssueContent](docs/IssueContent.md)
  - [Bitbucket::IssueJobStatus](docs/IssueJobStatus.md)
  - [Bitbucket::IssueLinks](docs/IssueLinks.md)
  - [Bitbucket::JiraProject](docs/JiraProject.md)
@@ -480,6 +498,7 @@ Class | Method | HTTP request | Description
  - [Bitbucket::Link](docs/Link.md)
  - [Bitbucket::Link1](docs/Link1.md)
  - [Bitbucket::Milestone](docs/Milestone.md)
+ - [Bitbucket::MilestoneLinks](docs/MilestoneLinks.md)
  - [Bitbucket::Object](docs/Object.md)
  - [Bitbucket::Page](docs/Page.md)
  - [Bitbucket::PaginatedAccounts](docs/PaginatedAccounts.md)
@@ -490,6 +509,7 @@ Class | Method | HTTP request | Description
  - [Bitbucket::PaginatedCommitComments](docs/PaginatedCommitComments.md)
  - [Bitbucket::PaginatedCommitstatuses](docs/PaginatedCommitstatuses.md)
  - [Bitbucket::PaginatedComponents](docs/PaginatedComponents.md)
+ - [Bitbucket::PaginatedDefaultReviewerAndType](docs/PaginatedDefaultReviewerAndType.md)
  - [Bitbucket::PaginatedDeployKeys](docs/PaginatedDeployKeys.md)
  - [Bitbucket::PaginatedDeploymentVariable](docs/PaginatedDeploymentVariable.md)
  - [Bitbucket::PaginatedDeployments](docs/PaginatedDeployments.md)
@@ -509,6 +529,7 @@ Class | Method | HTTP request | Description
  - [Bitbucket::PaginatedPipelineSteps](docs/PaginatedPipelineSteps.md)
  - [Bitbucket::PaginatedPipelineVariables](docs/PaginatedPipelineVariables.md)
  - [Bitbucket::PaginatedPipelines](docs/PaginatedPipelines.md)
+ - [Bitbucket::PaginatedProjectDeployKeys](docs/PaginatedProjectDeployKeys.md)
  - [Bitbucket::PaginatedProjects](docs/PaginatedProjects.md)
  - [Bitbucket::PaginatedPullrequestComments](docs/PaginatedPullrequestComments.md)
  - [Bitbucket::PaginatedPullrequests](docs/PaginatedPullrequests.md)
@@ -607,6 +628,9 @@ Class | Method | HTTP request | Description
  - [Bitbucket::PipelinesDdevPipelineStep](docs/PipelinesDdevPipelineStep.md)
  - [Bitbucket::PipelinesStgWestPipelineStep](docs/PipelinesStgWestPipelineStep.md)
  - [Bitbucket::Project](docs/Project.md)
+ - [Bitbucket::ProjectBranchingModel](docs/ProjectBranchingModel.md)
+ - [Bitbucket::ProjectBranchingModelDevelopment](docs/ProjectBranchingModelDevelopment.md)
+ - [Bitbucket::ProjectDeployKey](docs/ProjectDeployKey.md)
  - [Bitbucket::ProjectLinks](docs/ProjectLinks.md)
  - [Bitbucket::PullRequest](docs/PullRequest.md)
  - [Bitbucket::PullRequestBranch](docs/PullRequestBranch.md)
@@ -626,10 +650,11 @@ Class | Method | HTTP request | Description
  - [Bitbucket::ReportData](docs/ReportData.md)
  - [Bitbucket::Repository](docs/Repository.md)
  - [Bitbucket::RepositoryGroupPermission](docs/RepositoryGroupPermission.md)
+ - [Bitbucket::RepositoryGroupPermissionLinks](docs/RepositoryGroupPermissionLinks.md)
+ - [Bitbucket::RepositoryInheritanceState](docs/RepositoryInheritanceState.md)
  - [Bitbucket::RepositoryLinks](docs/RepositoryLinks.md)
  - [Bitbucket::RepositoryPermission](docs/RepositoryPermission.md)
  - [Bitbucket::RepositoryUserPermission](docs/RepositoryUserPermission.md)
- - [Bitbucket::RepositoryUserPermissionLinks](docs/RepositoryUserPermissionLinks.md)
  - [Bitbucket::SSHAccountKey](docs/SSHAccountKey.md)
  - [Bitbucket::SSHKey](docs/SSHKey.md)
  - [Bitbucket::SearchCodeSearchResult](docs/SearchCodeSearchResult.md)
@@ -639,6 +664,7 @@ Class | Method | HTTP request | Description
  - [Bitbucket::SearchSegment](docs/SearchSegment.md)
  - [Bitbucket::Snippet](docs/Snippet.md)
  - [Bitbucket::SnippetComment](docs/SnippetComment.md)
+ - [Bitbucket::SnippetCommentLinks](docs/SnippetCommentLinks.md)
  - [Bitbucket::SnippetCommit](docs/SnippetCommit.md)
  - [Bitbucket::SnippetCommitLinks](docs/SnippetCommitLinks.md)
  - [Bitbucket::SshAccountKey](docs/SshAccountKey.md)
@@ -653,7 +679,6 @@ Class | Method | HTTP request | Description
  - [Bitbucket::User](docs/User.md)
  - [Bitbucket::UserLinks](docs/UserLinks.md)
  - [Bitbucket::Version](docs/Version.md)
- - [Bitbucket::VersionLinks](docs/VersionLinks.md)
  - [Bitbucket::WebhookSubscription](docs/WebhookSubscription.md)
  - [Bitbucket::Workspace](docs/Workspace.md)
  - [Bitbucket::WorkspaceLinks](docs/WorkspaceLinks.md)

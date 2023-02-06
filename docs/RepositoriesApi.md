@@ -16,6 +16,8 @@ All URIs are relative to *https://api.bitbucket.org/2.0*
 | [**repositories_workspace_repo_slug_hooks_uid_delete**](RepositoriesApi.md#repositories_workspace_repo_slug_hooks_uid_delete) | **DELETE** /repositories/{workspace}/{repo_slug}/hooks/{uid} | Delete a webhook for a repository |
 | [**repositories_workspace_repo_slug_hooks_uid_get**](RepositoriesApi.md#repositories_workspace_repo_slug_hooks_uid_get) | **GET** /repositories/{workspace}/{repo_slug}/hooks/{uid} | Get a webhook for a repository |
 | [**repositories_workspace_repo_slug_hooks_uid_put**](RepositoriesApi.md#repositories_workspace_repo_slug_hooks_uid_put) | **PUT** /repositories/{workspace}/{repo_slug}/hooks/{uid} | Update a webhook for a repository |
+| [**repositories_workspace_repo_slug_override_settings_get**](RepositoriesApi.md#repositories_workspace_repo_slug_override_settings_get) | **GET** /repositories/{workspace}/{repo_slug}/override-settings | Retrieve the inheritance state for repository settings |
+| [**repositories_workspace_repo_slug_override_settings_put**](RepositoriesApi.md#repositories_workspace_repo_slug_override_settings_put) | **PUT** /repositories/{workspace}/{repo_slug}/override-settings | Set the inheritance state for repository settings                  |
 | [**repositories_workspace_repo_slug_permissions_config_groups_get**](RepositoriesApi.md#repositories_workspace_repo_slug_permissions_config_groups_get) | **GET** /repositories/{workspace}/{repo_slug}/permissions-config/groups | List explicit group permissions for a repository |
 | [**repositories_workspace_repo_slug_permissions_config_groups_group_slug_delete**](RepositoriesApi.md#repositories_workspace_repo_slug_permissions_config_groups_group_slug_delete) | **DELETE** /repositories/{workspace}/{repo_slug}/permissions-config/groups/{group_slug} | Delete an explicit group permission for a repository |
 | [**repositories_workspace_repo_slug_permissions_config_groups_group_slug_get**](RepositoriesApi.md#repositories_workspace_repo_slug_permissions_config_groups_group_slug_get) | **GET** /repositories/{workspace}/{repo_slug}/permissions-config/groups/{group_slug} | Get an explicit group permission for a repository |
@@ -1037,6 +1039,165 @@ end
 - **Accept**: application/json
 
 
+## repositories_workspace_repo_slug_override_settings_get
+
+> <RepositoryInheritanceState> repositories_workspace_repo_slug_override_settings_get(repo_slug, workspace)
+
+Retrieve the inheritance state for repository settings
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'bitbucket'
+# setup authorization
+Bitbucket.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['api_key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['api_key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Bitbucket::RepositoriesApi.new
+repo_slug = 'repo_slug_example' # String | This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: `{repository UUID}`. 
+workspace = 'workspace_example' # String | This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: `{workspace UUID}`. 
+
+begin
+  # Retrieve the inheritance state for repository settings
+  result = api_instance.repositories_workspace_repo_slug_override_settings_get(repo_slug, workspace)
+  p result
+rescue Bitbucket::ApiError => e
+  puts "Error when calling RepositoriesApi->repositories_workspace_repo_slug_override_settings_get: #{e}"
+end
+```
+
+#### Using the repositories_workspace_repo_slug_override_settings_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryInheritanceState>, Integer, Hash)> repositories_workspace_repo_slug_override_settings_get_with_http_info(repo_slug, workspace)
+
+```ruby
+begin
+  # Retrieve the inheritance state for repository settings
+  data, status_code, headers = api_instance.repositories_workspace_repo_slug_override_settings_get_with_http_info(repo_slug, workspace)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryInheritanceState>
+rescue Bitbucket::ApiError => e
+  puts "Error when calling RepositoriesApi->repositories_workspace_repo_slug_override_settings_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **repo_slug** | **String** | This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;.  |  |
+| **workspace** | **String** | This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;.  |  |
+
+### Return type
+
+[**RepositoryInheritanceState**](RepositoryInheritanceState.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [basic](../README.md#basic), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## repositories_workspace_repo_slug_override_settings_put
+
+> repositories_workspace_repo_slug_override_settings_put(repo_slug, workspace)
+
+Set the inheritance state for repository settings                 
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'bitbucket'
+# setup authorization
+Bitbucket.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['api_key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['api_key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Bitbucket::RepositoriesApi.new
+repo_slug = 'repo_slug_example' # String | This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: `{repository UUID}`. 
+workspace = 'workspace_example' # String | This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: `{workspace UUID}`. 
+
+begin
+  # Set the inheritance state for repository settings                 
+  api_instance.repositories_workspace_repo_slug_override_settings_put(repo_slug, workspace)
+rescue Bitbucket::ApiError => e
+  puts "Error when calling RepositoriesApi->repositories_workspace_repo_slug_override_settings_put: #{e}"
+end
+```
+
+#### Using the repositories_workspace_repo_slug_override_settings_put_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repositories_workspace_repo_slug_override_settings_put_with_http_info(repo_slug, workspace)
+
+```ruby
+begin
+  # Set the inheritance state for repository settings                 
+  data, status_code, headers = api_instance.repositories_workspace_repo_slug_override_settings_put_with_http_info(repo_slug, workspace)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Bitbucket::ApiError => e
+  puts "Error when calling RepositoriesApi->repositories_workspace_repo_slug_override_settings_put_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **repo_slug** | **String** | This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;.  |  |
+| **workspace** | **String** | This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;.  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key), [basic](../README.md#basic), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## repositories_workspace_repo_slug_permissions_config_groups_get
 
 > <PaginatedRepositoryGroupPermissions> repositories_workspace_repo_slug_permissions_config_groups_get(repo_slug, workspace)
@@ -1368,7 +1529,7 @@ end
 
 List explicit user permissions for a repository
 
-Returns a paginated list of explicit user permissions for the given repository.  Example:  ``` $ curl https://api.bitbucket.org/2.0/repositories/atlassian_tutorial/geordi/permissions-config/users  {   \"pagelen\": 10,   \"values\": [     {         \"type\": \"repository_user_permission\",         \"user\": {             \"type\": \"user\",             \"display_name\": \"Colin Cameron\",             \"uuid\": \"{d301aafa-d676-4ee0-88be-962be7417567}\",             \"account_id\": \"557058:ba8948b2-49da-43a9-9e8b-e7249b8e324a\"         },         \"permission\": \"admin\",         \"links\": {           \"self\": {             \"href\": \"https://api.bitbucket.org/2.0/repositories/atlassian_tutorial/geordi/                      permissions-config/users/557058:ba8948b2-49da-43a9-9e8b-e7249b8e324a\"           }         }     },     {       \"type\": \"repository_user_permission\",       \"user\": {         \"type\": \"user\",         \"display_name\": \"Sean Conaty\",         \"uuid\": \"{504c3b62-8120-4f0c-a7bc-87800b9d6f70}\",         \"account_id\": \"557058:ba8948b2-49da-43a9-9e8b-e7249b8e324c\"       },       \"permission\": \"write\",       \"links\": {         \"self\": {           \"href\": \"https://api.bitbucket.org/2.0//repositories/atlassian_tutorial/geordi/                    permissions-config/users/557058:ba8948b2-49da-43a9-9e8b-e7249b8e324c\"         }       }     }   ],   \"page\": 1,   \"size\": 2 } ```
+Returns a paginated list of explicit user permissions for the given repository. This endpoint does not support BBQL features.  Example:  ``` $ curl https://api.bitbucket.org/2.0/repositories/atlassian_tutorial/geordi/permissions-config/users  {   \"pagelen\": 10,   \"values\": [     {         \"type\": \"repository_user_permission\",         \"user\": {             \"type\": \"user\",             \"display_name\": \"Colin Cameron\",             \"uuid\": \"{d301aafa-d676-4ee0-88be-962be7417567}\",             \"account_id\": \"557058:ba8948b2-49da-43a9-9e8b-e7249b8e324a\"         },         \"permission\": \"admin\",         \"links\": {           \"self\": {             \"href\": \"https://api.bitbucket.org/2.0/repositories/atlassian_tutorial/geordi/                      permissions-config/users/557058:ba8948b2-49da-43a9-9e8b-e7249b8e324a\"           }         }     },     {       \"type\": \"repository_user_permission\",       \"user\": {         \"type\": \"user\",         \"display_name\": \"Sean Conaty\",         \"uuid\": \"{504c3b62-8120-4f0c-a7bc-87800b9d6f70}\",         \"account_id\": \"557058:ba8948b2-49da-43a9-9e8b-e7249b8e324c\"       },       \"permission\": \"write\",       \"links\": {         \"self\": {           \"href\": \"https://api.bitbucket.org/2.0//repositories/atlassian_tutorial/geordi/                    permissions-config/users/557058:ba8948b2-49da-43a9-9e8b-e7249b8e324c\"         }       }     }   ],   \"page\": 1,   \"size\": 2 } ```
 
 ### Examples
 

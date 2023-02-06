@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **title** | [**IssueContent**](IssueContent.md) |  | [optional] |
-| **description** | [**IssueContent**](IssueContent.md) |  | [optional] |
-| **reason** | [**IssueContent**](IssueContent.md) |  | [optional] |
+| **title** | [**BaseCommitSummary**](BaseCommitSummary.md) |  | [optional] |
+| **description** | [**BaseCommitSummary**](BaseCommitSummary.md) |  | [optional] |
+| **reason** | [**BaseCommitSummary**](BaseCommitSummary.md) |  | [optional] |
 
 ## Example
 

@@ -210,6 +210,20 @@ describe 'PipelinesApi' do
     end
   end
 
+  # unit tests for delete_repository_pipeline_caches
+  # Delete caches
+  # Delete repository cache versions by name.
+  # @param workspace The account.
+  # @param repo_slug The repository.
+  # @param name The cache name.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_repository_pipeline_caches test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for delete_repository_pipeline_key_pair
   # Delete SSH key pair
   # Delete the repository SSH key pair.

@@ -60,7 +60,7 @@ module Bitbucket
         :'id' => :'Integer',
         :'created_on' => :'Time',
         :'updated_on' => :'Time',
-        :'content' => :'IssueContent',
+        :'content' => :'BaseCommitSummary',
         :'user' => :'Account',
         :'deleted' => :'Boolean',
         :'parent' => :'Comment',

@@ -189,7 +189,7 @@ module Bitbucket
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      state_validator = EnumAttributeValidator.new('String', ["FAILED", "SUCCESSFUL", "INPROGRESS", "STOPPED"])
+      state_validator = EnumAttributeValidator.new('String', ["INPROGRESS", "FAILED", "STOPPED", "SUCCESSFUL"])
       return false unless state_validator.valid?(@state)
       true && super
     end
@@ -197,7 +197,7 @@ module Bitbucket
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] state Object to be assigned
     def state=(state)
-      validator = EnumAttributeValidator.new('String', ["FAILED", "SUCCESSFUL", "INPROGRESS", "STOPPED"])
+      validator = EnumAttributeValidator.new('String', ["INPROGRESS", "FAILED", "STOPPED", "SUCCESSFUL"])
       unless validator.valid?(state)
         fail ArgumentError, "invalid value for \"state\", must be one of #{validator.allowable_values}."
       end

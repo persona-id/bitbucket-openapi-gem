@@ -462,7 +462,7 @@ module Bitbucket
       return data, status_code, headers
     end
 
-    # List deploy keys
+    # List repository deploy keys
     # Returns all deploy-keys belonging to a repository.  Example: ``` $ curl -H \"Authorization <auth header>\" \\ https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys  Output: {     \"pagelen\": 10,     \"values\": [         {             \"id\": 123,             \"key\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5\",             \"label\": \"mykey\",             \"type\": \"deploy_key\",             \"created_on\": \"2018-08-15T23:50:59.993890+00:00\",             \"repository\": {                 \"full_name\": \"mleu/test\",                 \"name\": \"test\",                 \"type\": \"repository\",                 \"uuid\": \"{85d08b4e-571d-44e9-a507-fa476535aa98}\"             },             \"links\":{                 \"self\":{                     \"href\": \"https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys/123\"                 }             }             \"last_used\": null,             \"comment\": \"mleu@C02W454JHTD8\"         }     ],     \"page\": 1,     \"size\": 1 } ```
     # @param repo_slug [String] This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;. 
     # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
@@ -473,7 +473,7 @@ module Bitbucket
       data
     end
 
-    # List deploy keys
+    # List repository deploy keys
     # Returns all deploy-keys belonging to a repository.  Example: &#x60;&#x60;&#x60; $ curl -H \&quot;Authorization &lt;auth header&gt;\&quot; \\ https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys  Output: {     \&quot;pagelen\&quot;: 10,     \&quot;values\&quot;: [         {             \&quot;id\&quot;: 123,             \&quot;key\&quot;: \&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5\&quot;,             \&quot;label\&quot;: \&quot;mykey\&quot;,             \&quot;type\&quot;: \&quot;deploy_key\&quot;,             \&quot;created_on\&quot;: \&quot;2018-08-15T23:50:59.993890+00:00\&quot;,             \&quot;repository\&quot;: {                 \&quot;full_name\&quot;: \&quot;mleu/test\&quot;,                 \&quot;name\&quot;: \&quot;test\&quot;,                 \&quot;type\&quot;: \&quot;repository\&quot;,                 \&quot;uuid\&quot;: \&quot;{85d08b4e-571d-44e9-a507-fa476535aa98}\&quot;             },             \&quot;links\&quot;:{                 \&quot;self\&quot;:{                     \&quot;href\&quot;: \&quot;https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys/123\&quot;                 }             }             \&quot;last_used\&quot;: null,             \&quot;comment\&quot;: \&quot;mleu@C02W454JHTD8\&quot;         }     ],     \&quot;page\&quot;: 1,     \&quot;size\&quot;: 1 } &#x60;&#x60;&#x60;
     # @param repo_slug [String] This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;. 
     # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
@@ -531,7 +531,7 @@ module Bitbucket
       return data, status_code, headers
     end
 
-    # Delete a deploy key
+    # Delete a repository deploy key
     # This deletes a deploy key from a repository.  Example: ``` $ curl -XDELETE \\ -H \"Authorization <auth header>\" \\ https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys/1234 ```
     # @param key_id [String] The key ID matching the deploy key.
     # @param repo_slug [String] This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;. 
@@ -543,7 +543,7 @@ module Bitbucket
       nil
     end
 
-    # Delete a deploy key
+    # Delete a repository deploy key
     # This deletes a deploy key from a repository.  Example: &#x60;&#x60;&#x60; $ curl -XDELETE \\ -H \&quot;Authorization &lt;auth header&gt;\&quot; \\ https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys/1234 &#x60;&#x60;&#x60;
     # @param key_id [String] The key ID matching the deploy key.
     # @param repo_slug [String] This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;. 
@@ -606,7 +606,7 @@ module Bitbucket
       return data, status_code, headers
     end
 
-    # Get a deploy key
+    # Get a repository deploy key
     # Returns the deploy key belonging to a specific key.  Example: ``` $ curl -H \"Authorization <auth header>\" \\ https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-key/1234  Output: {     \"comment\": \"mleu@C02W454JHTD8\",     \"last_used\": null,     \"links\": {         \"self\": {             \"href\": https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-key/1234\"         }     },     \"repository\": {         \"full_name\": \"mleu/test\",         \"name\": \"test\",         \"type\": \"repository\",         \"uuid\": \"{85d08b4e-571d-44e9-a507-fa476535aa98}\"     },     \"label\": \"mykey\",     \"created_on\": \"2018-08-15T23:50:59.993890+00:00\",     \"key\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5\",     \"id\": 1234,     \"type\": \"deploy_key\" } ```
     # @param key_id [String] The key ID matching the deploy key.
     # @param repo_slug [String] This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;. 
@@ -618,7 +618,7 @@ module Bitbucket
       data
     end
 
-    # Get a deploy key
+    # Get a repository deploy key
     # Returns the deploy key belonging to a specific key.  Example: &#x60;&#x60;&#x60; $ curl -H \&quot;Authorization &lt;auth header&gt;\&quot; \\ https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-key/1234  Output: {     \&quot;comment\&quot;: \&quot;mleu@C02W454JHTD8\&quot;,     \&quot;last_used\&quot;: null,     \&quot;links\&quot;: {         \&quot;self\&quot;: {             \&quot;href\&quot;: https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-key/1234\&quot;         }     },     \&quot;repository\&quot;: {         \&quot;full_name\&quot;: \&quot;mleu/test\&quot;,         \&quot;name\&quot;: \&quot;test\&quot;,         \&quot;type\&quot;: \&quot;repository\&quot;,         \&quot;uuid\&quot;: \&quot;{85d08b4e-571d-44e9-a507-fa476535aa98}\&quot;     },     \&quot;label\&quot;: \&quot;mykey\&quot;,     \&quot;created_on\&quot;: \&quot;2018-08-15T23:50:59.993890+00:00\&quot;,     \&quot;key\&quot;: \&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5\&quot;,     \&quot;id\&quot;: 1234,     \&quot;type\&quot;: \&quot;deploy_key\&quot; } &#x60;&#x60;&#x60;
     # @param key_id [String] The key ID matching the deploy key.
     # @param repo_slug [String] This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;. 
@@ -681,7 +681,7 @@ module Bitbucket
       return data, status_code, headers
     end
 
-    # Update a deploy key
+    # Update a repository deploy key
     # Create a new deploy key in a repository.  The same key needs to be passed in but the comment and label can change.  Example: ``` $ curl -XPUT \\ -H \"Authorization <auth header>\" \\ -H \"Content-type: application/json\" \\ https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys/1234 -d \\ '{     \"label\": \"newlabel\",     \"key\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5 newcomment\", }'  Output: {     \"comment\": \"newcomment\",     \"last_used\": null,     \"links\": {         \"self\": {             \"href\": \"https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys/1234\"         }     },     \"repository\": {         \"full_name\": \"mleu/test\",         \"name\": \"test\",         \"type\": \"repository\",         \"uuid\": \"{85d08b4e-571d-44e9-a507-fa476535aa98}\"     },     \"label\": \"newlabel\",     \"created_on\": \"2018-08-15T23:50:59.993890+00:00\",     \"key\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5\",     \"id\": 1234,     \"type\": \"deploy_key\" } ```
     # @param key_id [String] The key ID matching the deploy key.
     # @param repo_slug [String] This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;. 
@@ -693,7 +693,7 @@ module Bitbucket
       data
     end
 
-    # Update a deploy key
+    # Update a repository deploy key
     # Create a new deploy key in a repository.  The same key needs to be passed in but the comment and label can change.  Example: &#x60;&#x60;&#x60; $ curl -XPUT \\ -H \&quot;Authorization &lt;auth header&gt;\&quot; \\ -H \&quot;Content-type: application/json\&quot; \\ https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys/1234 -d \\ &#39;{     \&quot;label\&quot;: \&quot;newlabel\&quot;,     \&quot;key\&quot;: \&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5 newcomment\&quot;, }&#39;  Output: {     \&quot;comment\&quot;: \&quot;newcomment\&quot;,     \&quot;last_used\&quot;: null,     \&quot;links\&quot;: {         \&quot;self\&quot;: {             \&quot;href\&quot;: \&quot;https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys/1234\&quot;         }     },     \&quot;repository\&quot;: {         \&quot;full_name\&quot;: \&quot;mleu/test\&quot;,         \&quot;name\&quot;: \&quot;test\&quot;,         \&quot;type\&quot;: \&quot;repository\&quot;,         \&quot;uuid\&quot;: \&quot;{85d08b4e-571d-44e9-a507-fa476535aa98}\&quot;     },     \&quot;label\&quot;: \&quot;newlabel\&quot;,     \&quot;created_on\&quot;: \&quot;2018-08-15T23:50:59.993890+00:00\&quot;,     \&quot;key\&quot;: \&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5\&quot;,     \&quot;id\&quot;: 1234,     \&quot;type\&quot;: \&quot;deploy_key\&quot; } &#x60;&#x60;&#x60;
     # @param key_id [String] The key ID matching the deploy key.
     # @param repo_slug [String] This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;. 
@@ -756,7 +756,7 @@ module Bitbucket
       return data, status_code, headers
     end
 
-    # Add a deploy key
+    # Add a repository deploy key
     # Create a new deploy key in a repository. Note: If authenticating a deploy key with an OAuth consumer, any changes to the OAuth consumer will subsequently invalidate the deploy key.   Example: ``` $ curl -XPOST \\ -H \"Authorization <auth header>\" \\ -H \"Content-type: application/json\" \\ https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys -d \\ '{     \"key\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5 mleu@C02W454JHTD8\",     \"label\": \"mydeploykey\" }'  Output: {     \"id\": 123,     \"key\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5\",     \"label\": \"mydeploykey\",     \"type\": \"deploy_key\",     \"created_on\": \"2018-08-15T23:50:59.993890+00:00\",     \"repository\": {         \"full_name\": \"mleu/test\",         \"name\": \"test\",         \"type\": \"repository\",         \"uuid\": \"{85d08b4e-571d-44e9-a507-fa476535aa98}\"     },     \"links\":{         \"self\":{             \"href\": \"https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys/123\"         }     }     \"last_used\": null,     \"comment\": \"mleu@C02W454JHTD8\" } ```
     # @param repo_slug [String] This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;. 
     # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
@@ -767,7 +767,7 @@ module Bitbucket
       data
     end
 
-    # Add a deploy key
+    # Add a repository deploy key
     # Create a new deploy key in a repository. Note: If authenticating a deploy key with an OAuth consumer, any changes to the OAuth consumer will subsequently invalidate the deploy key.   Example: &#x60;&#x60;&#x60; $ curl -XPOST \\ -H \&quot;Authorization &lt;auth header&gt;\&quot; \\ -H \&quot;Content-type: application/json\&quot; \\ https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys -d \\ &#39;{     \&quot;key\&quot;: \&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5 mleu@C02W454JHTD8\&quot;,     \&quot;label\&quot;: \&quot;mydeploykey\&quot; }&#39;  Output: {     \&quot;id\&quot;: 123,     \&quot;key\&quot;: \&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5\&quot;,     \&quot;label\&quot;: \&quot;mydeploykey\&quot;,     \&quot;type\&quot;: \&quot;deploy_key\&quot;,     \&quot;created_on\&quot;: \&quot;2018-08-15T23:50:59.993890+00:00\&quot;,     \&quot;repository\&quot;: {         \&quot;full_name\&quot;: \&quot;mleu/test\&quot;,         \&quot;name\&quot;: \&quot;test\&quot;,         \&quot;type\&quot;: \&quot;repository\&quot;,         \&quot;uuid\&quot;: \&quot;{85d08b4e-571d-44e9-a507-fa476535aa98}\&quot;     },     \&quot;links\&quot;:{         \&quot;self\&quot;:{             \&quot;href\&quot;: \&quot;https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys/123\&quot;         }     }     \&quot;last_used\&quot;: null,     \&quot;comment\&quot;: \&quot;mleu@C02W454JHTD8\&quot; } &#x60;&#x60;&#x60;
     # @param repo_slug [String] This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;. 
     # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
@@ -896,6 +896,294 @@ module Bitbucket
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DeploymentsApi#update_environment_for_repository\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List project deploy keys
+    # Returns all deploy keys belonging to a project.  Example: ``` $ curl -H \"Authorization <auth header>\" \\ https://api.bitbucket.org/2.0/workspaces/standard/projects/TEST_PROJECT/deploy-keys  Output: {     \"pagelen\":10,     \"values\":[         {             \"comment\":\"thakseth@C02W454JHTD8\",             \"last_used\":null,             \"links\":{                 \"self\":{                     \"href\":\"https://api.bitbucket.org/2.0/workspaces/standard/projects/TEST_PROJECT/deploy-keys/1234\"                 }             },             \"label\":\"test\",             \"project\":{                 \"links\":{                     \"self\":{                         \"href\":\"https://api.bitbucket.org/2.0/workspaces/standard/projects/TEST_PROJECT\"                     }                 },                 \"type\":\"project\",                 \"name\":\"cooperative standard\",                 \"key\":\"TEST_PROJECT\",                 \"uuid\":\"{3b3e510b-7f2b-414d-a2b7-76c4e405c1c0}\"             },             \"created_on\":\"2021-07-28T21:20:19.491721+00:00\",             \"key\":\"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDX5yfMOEw6HG9jKTYTisbmDTJ4MCUTSVGr5e4OWvY3UuI2A6F8SdzQqa2f5BABA/4g5Sk5awJrYHlNu3EzV1V2I44tR3A4fnZAG71ZKyDPi1wvdO7UYmFgxV/Vd18H9QZFFjICGDM7W0PT2mI0kON/jN3qNWi+GiB/xgaeQKSqynysdysDp8lnnI/8Sh3ikURP9UP83ShRCpAXszOUNaa+UUlcYQYBDLIGowsg51c4PCkC3DNhAMxppkNRKoSOWwyl+oRVXHSDylkiJSBHW3HH4Q6WHieD54kGrjbhWBKdnnxKX7QAAZBDseY+t01N36m6/ljvXSUEcBWtHxBYye0r\",             \"type\":\"project_deploy_key\",             \"id\":1234         }     ],     \"page\":1,     \"size\":1 } ```
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [PaginatedProjectDeployKeys]
+    def workspaces_workspace_projects_project_key_deploy_keys_get(project_key, workspace, opts = {})
+      data, _status_code, _headers = workspaces_workspace_projects_project_key_deploy_keys_get_with_http_info(project_key, workspace, opts)
+      data
+    end
+
+    # List project deploy keys
+    # Returns all deploy keys belonging to a project.  Example: &#x60;&#x60;&#x60; $ curl -H \&quot;Authorization &lt;auth header&gt;\&quot; \\ https://api.bitbucket.org/2.0/workspaces/standard/projects/TEST_PROJECT/deploy-keys  Output: {     \&quot;pagelen\&quot;:10,     \&quot;values\&quot;:[         {             \&quot;comment\&quot;:\&quot;thakseth@C02W454JHTD8\&quot;,             \&quot;last_used\&quot;:null,             \&quot;links\&quot;:{                 \&quot;self\&quot;:{                     \&quot;href\&quot;:\&quot;https://api.bitbucket.org/2.0/workspaces/standard/projects/TEST_PROJECT/deploy-keys/1234\&quot;                 }             },             \&quot;label\&quot;:\&quot;test\&quot;,             \&quot;project\&quot;:{                 \&quot;links\&quot;:{                     \&quot;self\&quot;:{                         \&quot;href\&quot;:\&quot;https://api.bitbucket.org/2.0/workspaces/standard/projects/TEST_PROJECT\&quot;                     }                 },                 \&quot;type\&quot;:\&quot;project\&quot;,                 \&quot;name\&quot;:\&quot;cooperative standard\&quot;,                 \&quot;key\&quot;:\&quot;TEST_PROJECT\&quot;,                 \&quot;uuid\&quot;:\&quot;{3b3e510b-7f2b-414d-a2b7-76c4e405c1c0}\&quot;             },             \&quot;created_on\&quot;:\&quot;2021-07-28T21:20:19.491721+00:00\&quot;,             \&quot;key\&quot;:\&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDX5yfMOEw6HG9jKTYTisbmDTJ4MCUTSVGr5e4OWvY3UuI2A6F8SdzQqa2f5BABA/4g5Sk5awJrYHlNu3EzV1V2I44tR3A4fnZAG71ZKyDPi1wvdO7UYmFgxV/Vd18H9QZFFjICGDM7W0PT2mI0kON/jN3qNWi+GiB/xgaeQKSqynysdysDp8lnnI/8Sh3ikURP9UP83ShRCpAXszOUNaa+UUlcYQYBDLIGowsg51c4PCkC3DNhAMxppkNRKoSOWwyl+oRVXHSDylkiJSBHW3HH4Q6WHieD54kGrjbhWBKdnnxKX7QAAZBDseY+t01N36m6/ljvXSUEcBWtHxBYye0r\&quot;,             \&quot;type\&quot;:\&quot;project_deploy_key\&quot;,             \&quot;id\&quot;:1234         }     ],     \&quot;page\&quot;:1,     \&quot;size\&quot;:1 } &#x60;&#x60;&#x60;
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PaginatedProjectDeployKeys, Integer, Hash)>] PaginatedProjectDeployKeys data, response status code and response headers
+    def workspaces_workspace_projects_project_key_deploy_keys_get_with_http_info(project_key, workspace, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_get ...'
+      end
+      # verify the required parameter 'project_key' is set
+      if @api_client.config.client_side_validation && project_key.nil?
+        fail ArgumentError, "Missing the required parameter 'project_key' when calling DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_get"
+      end
+      # verify the required parameter 'workspace' is set
+      if @api_client.config.client_side_validation && workspace.nil?
+        fail ArgumentError, "Missing the required parameter 'workspace' when calling DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_get"
+      end
+      # resource path
+      local_var_path = '/workspaces/{workspace}/projects/{project_key}/deploy-keys'.sub('{' + 'project_key' + '}', CGI.escape(project_key.to_s)).sub('{' + 'workspace' + '}', CGI.escape(workspace.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PaginatedProjectDeployKeys'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'basic', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeploymentsApi#workspaces_workspace_projects_project_key_deploy_keys_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a deploy key from a project
+    # This deletes a deploy key from a project.  Example: ``` $ curl -XDELETE \\ -H \"Authorization <auth header>\" \\ https://api.bitbucket.org/2.0/workspaces/jzeng/projects/JZ/deploy-keys/1234 ```
+    # @param key_id [String] The key ID matching the project deploy key.
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def workspaces_workspace_projects_project_key_deploy_keys_key_id_delete(key_id, project_key, workspace, opts = {})
+      workspaces_workspace_projects_project_key_deploy_keys_key_id_delete_with_http_info(key_id, project_key, workspace, opts)
+      nil
+    end
+
+    # Delete a deploy key from a project
+    # This deletes a deploy key from a project.  Example: &#x60;&#x60;&#x60; $ curl -XDELETE \\ -H \&quot;Authorization &lt;auth header&gt;\&quot; \\ https://api.bitbucket.org/2.0/workspaces/jzeng/projects/JZ/deploy-keys/1234 &#x60;&#x60;&#x60;
+    # @param key_id [String] The key ID matching the project deploy key.
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def workspaces_workspace_projects_project_key_deploy_keys_key_id_delete_with_http_info(key_id, project_key, workspace, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_key_id_delete ...'
+      end
+      # verify the required parameter 'key_id' is set
+      if @api_client.config.client_side_validation && key_id.nil?
+        fail ArgumentError, "Missing the required parameter 'key_id' when calling DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_key_id_delete"
+      end
+      # verify the required parameter 'project_key' is set
+      if @api_client.config.client_side_validation && project_key.nil?
+        fail ArgumentError, "Missing the required parameter 'project_key' when calling DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_key_id_delete"
+      end
+      # verify the required parameter 'workspace' is set
+      if @api_client.config.client_side_validation && workspace.nil?
+        fail ArgumentError, "Missing the required parameter 'workspace' when calling DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_key_id_delete"
+      end
+      # resource path
+      local_var_path = '/workspaces/{workspace}/projects/{project_key}/deploy-keys/{key_id}'.sub('{' + 'key_id' + '}', CGI.escape(key_id.to_s)).sub('{' + 'project_key' + '}', CGI.escape(project_key.to_s)).sub('{' + 'workspace' + '}', CGI.escape(workspace.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'basic', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_key_id_delete",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeploymentsApi#workspaces_workspace_projects_project_key_deploy_keys_key_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a project deploy key
+    # Returns the deploy key belonging to a specific key ID.  Example: ``` $ curl -H \"Authorization <auth header>\" \\ https://api.bitbucket.org/2.0/workspaces/standard/projects/TEST_PROJECT/deploy-keys/1234  Output: {     \"pagelen\":10,     \"values\":[         {             \"comment\":\"thakseth@C02W454JHTD8\",             \"last_used\":null,             \"links\":{                 \"self\":{                     \"href\":\"https://api.bitbucket.org/2.0/workspaces/standard/projects/TEST_PROJECT/deploy-keys/1234\"                 }             },             \"label\":\"test\",             \"project\":{                 \"links\":{                     \"self\":{                         \"href\":\"https://api.bitbucket.org/2.0/workspaces/standard/projects/TEST_PROJECT\"                     }                 },                 \"type\":\"project\",                 \"name\":\"cooperative standard\",                 \"key\":\"TEST_PROJECT\",                 \"uuid\":\"{3b3e510b-7f2b-414d-a2b7-76c4e405c1c0}\"             },             \"created_on\":\"2021-07-28T21:20:19.491721+00:00\",             \"key\":\"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDX5yfMOEw6HG9jKTYTisbmDTJ4MCUTSVGr5e4OWvY3UuI2A6F8SdzQqa2f5BABA/4g5Sk5awJrYHlNu3EzV1V2I44tR3A4fnZAG71ZKyDPi1wvdO7UYmFgxV/Vd18H9QZFFjICGDM7W0PT2mI0kON/jN3qNWi+GiB/xgaeQKSqynysdysDp8lnnI/8Sh3ikURP9UP83ShRCpAXszOUNaa+UUlcYQYBDLIGowsg51c4PCkC3DNhAMxppkNRKoSOWwyl+oRVXHSDylkiJSBHW3HH4Q6WHieD54kGrjbhWBKdnnxKX7QAAZBDseY+t01N36m6/ljvXSUEcBWtHxBYye0r\",             \"type\":\"project_deploy_key\",             \"id\":1234         }     ], } ```
+    # @param key_id [String] The key ID matching the project deploy key.
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [ProjectDeployKey]
+    def workspaces_workspace_projects_project_key_deploy_keys_key_id_get(key_id, project_key, workspace, opts = {})
+      data, _status_code, _headers = workspaces_workspace_projects_project_key_deploy_keys_key_id_get_with_http_info(key_id, project_key, workspace, opts)
+      data
+    end
+
+    # Get a project deploy key
+    # Returns the deploy key belonging to a specific key ID.  Example: &#x60;&#x60;&#x60; $ curl -H \&quot;Authorization &lt;auth header&gt;\&quot; \\ https://api.bitbucket.org/2.0/workspaces/standard/projects/TEST_PROJECT/deploy-keys/1234  Output: {     \&quot;pagelen\&quot;:10,     \&quot;values\&quot;:[         {             \&quot;comment\&quot;:\&quot;thakseth@C02W454JHTD8\&quot;,             \&quot;last_used\&quot;:null,             \&quot;links\&quot;:{                 \&quot;self\&quot;:{                     \&quot;href\&quot;:\&quot;https://api.bitbucket.org/2.0/workspaces/standard/projects/TEST_PROJECT/deploy-keys/1234\&quot;                 }             },             \&quot;label\&quot;:\&quot;test\&quot;,             \&quot;project\&quot;:{                 \&quot;links\&quot;:{                     \&quot;self\&quot;:{                         \&quot;href\&quot;:\&quot;https://api.bitbucket.org/2.0/workspaces/standard/projects/TEST_PROJECT\&quot;                     }                 },                 \&quot;type\&quot;:\&quot;project\&quot;,                 \&quot;name\&quot;:\&quot;cooperative standard\&quot;,                 \&quot;key\&quot;:\&quot;TEST_PROJECT\&quot;,                 \&quot;uuid\&quot;:\&quot;{3b3e510b-7f2b-414d-a2b7-76c4e405c1c0}\&quot;             },             \&quot;created_on\&quot;:\&quot;2021-07-28T21:20:19.491721+00:00\&quot;,             \&quot;key\&quot;:\&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDX5yfMOEw6HG9jKTYTisbmDTJ4MCUTSVGr5e4OWvY3UuI2A6F8SdzQqa2f5BABA/4g5Sk5awJrYHlNu3EzV1V2I44tR3A4fnZAG71ZKyDPi1wvdO7UYmFgxV/Vd18H9QZFFjICGDM7W0PT2mI0kON/jN3qNWi+GiB/xgaeQKSqynysdysDp8lnnI/8Sh3ikURP9UP83ShRCpAXszOUNaa+UUlcYQYBDLIGowsg51c4PCkC3DNhAMxppkNRKoSOWwyl+oRVXHSDylkiJSBHW3HH4Q6WHieD54kGrjbhWBKdnnxKX7QAAZBDseY+t01N36m6/ljvXSUEcBWtHxBYye0r\&quot;,             \&quot;type\&quot;:\&quot;project_deploy_key\&quot;,             \&quot;id\&quot;:1234         }     ], } &#x60;&#x60;&#x60;
+    # @param key_id [String] The key ID matching the project deploy key.
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ProjectDeployKey, Integer, Hash)>] ProjectDeployKey data, response status code and response headers
+    def workspaces_workspace_projects_project_key_deploy_keys_key_id_get_with_http_info(key_id, project_key, workspace, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_key_id_get ...'
+      end
+      # verify the required parameter 'key_id' is set
+      if @api_client.config.client_side_validation && key_id.nil?
+        fail ArgumentError, "Missing the required parameter 'key_id' when calling DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_key_id_get"
+      end
+      # verify the required parameter 'project_key' is set
+      if @api_client.config.client_side_validation && project_key.nil?
+        fail ArgumentError, "Missing the required parameter 'project_key' when calling DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_key_id_get"
+      end
+      # verify the required parameter 'workspace' is set
+      if @api_client.config.client_side_validation && workspace.nil?
+        fail ArgumentError, "Missing the required parameter 'workspace' when calling DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_key_id_get"
+      end
+      # resource path
+      local_var_path = '/workspaces/{workspace}/projects/{project_key}/deploy-keys/{key_id}'.sub('{' + 'key_id' + '}', CGI.escape(key_id.to_s)).sub('{' + 'project_key' + '}', CGI.escape(project_key.to_s)).sub('{' + 'workspace' + '}', CGI.escape(workspace.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProjectDeployKey'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'basic', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_key_id_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeploymentsApi#workspaces_workspace_projects_project_key_deploy_keys_key_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a project deploy key
+    # Create a new deploy key in a project.  Example: ``` $ curl -XPOST \\ -H \"Authorization <auth header>\" \\ -H \"Content-type: application/json\" \\ https://api.bitbucket.org/2.0/workspaces/jzeng/projects/JZ/deploy-keys/ -d \\ '{     \"key\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5 mleu@C02W454JHTD8\",     \"label\": \"mydeploykey\" }'  Output: {     \"comment\": \"mleu@C02W454JHTD8\",     \"last_used\": null,     \"links\": {         \"self\": {             \"href\": \"https://api.bitbucket.org/2.0/workspaces/testadfsa/projects/ASDF/deploy-keys/5/\"         }     },     \"label\": \"myprojectkey\",     \"project\": {         ...     },     \"created_on\": \"2021-08-10T05:28:00.570859+00:00\",     \"key\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5\",     \"type\": \"project_deploy_key\",     \"id\": 5 } ```
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [ProjectDeployKey]
+    def workspaces_workspace_projects_project_key_deploy_keys_post(project_key, workspace, opts = {})
+      data, _status_code, _headers = workspaces_workspace_projects_project_key_deploy_keys_post_with_http_info(project_key, workspace, opts)
+      data
+    end
+
+    # Create a project deploy key
+    # Create a new deploy key in a project.  Example: &#x60;&#x60;&#x60; $ curl -XPOST \\ -H \&quot;Authorization &lt;auth header&gt;\&quot; \\ -H \&quot;Content-type: application/json\&quot; \\ https://api.bitbucket.org/2.0/workspaces/jzeng/projects/JZ/deploy-keys/ -d \\ &#39;{     \&quot;key\&quot;: \&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5 mleu@C02W454JHTD8\&quot;,     \&quot;label\&quot;: \&quot;mydeploykey\&quot; }&#39;  Output: {     \&quot;comment\&quot;: \&quot;mleu@C02W454JHTD8\&quot;,     \&quot;last_used\&quot;: null,     \&quot;links\&quot;: {         \&quot;self\&quot;: {             \&quot;href\&quot;: \&quot;https://api.bitbucket.org/2.0/workspaces/testadfsa/projects/ASDF/deploy-keys/5/\&quot;         }     },     \&quot;label\&quot;: \&quot;myprojectkey\&quot;,     \&quot;project\&quot;: {         ...     },     \&quot;created_on\&quot;: \&quot;2021-08-10T05:28:00.570859+00:00\&quot;,     \&quot;key\&quot;: \&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5\&quot;,     \&quot;type\&quot;: \&quot;project_deploy_key\&quot;,     \&quot;id\&quot;: 5 } &#x60;&#x60;&#x60;
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ProjectDeployKey, Integer, Hash)>] ProjectDeployKey data, response status code and response headers
+    def workspaces_workspace_projects_project_key_deploy_keys_post_with_http_info(project_key, workspace, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_post ...'
+      end
+      # verify the required parameter 'project_key' is set
+      if @api_client.config.client_side_validation && project_key.nil?
+        fail ArgumentError, "Missing the required parameter 'project_key' when calling DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_post"
+      end
+      # verify the required parameter 'workspace' is set
+      if @api_client.config.client_side_validation && workspace.nil?
+        fail ArgumentError, "Missing the required parameter 'workspace' when calling DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_post"
+      end
+      # resource path
+      local_var_path = '/workspaces/{workspace}/projects/{project_key}/deploy-keys'.sub('{' + 'project_key' + '}', CGI.escape(project_key.to_s)).sub('{' + 'workspace' + '}', CGI.escape(workspace.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ProjectDeployKey'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'basic', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DeploymentsApi.workspaces_workspace_projects_project_key_deploy_keys_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeploymentsApi#workspaces_workspace_projects_project_key_deploy_keys_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

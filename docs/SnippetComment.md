@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **links** | [**GroupLinks**](GroupLinks.md) |  | [optional] |
+| **links** | [**SnippetCommentLinks**](SnippetCommentLinks.md) |  | [optional] |
 | **snippet** | [**Snippet**](Snippet.md) |  | [optional] |
 
 ## Example

@@ -292,7 +292,7 @@ api_instance = Bitbucket::BranchRestrictionsApi.new
 id = 'id_example' # String | The restriction rule's id
 repo_slug = 'repo_slug_example' # String | This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: `{repository UUID}`. 
 workspace = 'workspace_example' # String | This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: `{workspace UUID}`. 
-branchrestriction = Bitbucket::Branchrestriction.new({kind: 'push', branch_match_kind: 'branching_model', pattern: 'pattern_example', type: 'type_example'}) # Branchrestriction | The new version of the existing rule
+branchrestriction = Bitbucket::Branchrestriction.new({type: 'type_example'}) # Branchrestriction | The new version of the existing rule
 
 begin
   # Update a branch restriction rule
@@ -375,7 +375,7 @@ end
 api_instance = Bitbucket::BranchRestrictionsApi.new
 repo_slug = 'repo_slug_example' # String | This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: `{repository UUID}`. 
 workspace = 'workspace_example' # String | This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: `{workspace UUID}`. 
-branchrestriction = Bitbucket::Branchrestriction.new({kind: 'push', branch_match_kind: 'branching_model', pattern: 'pattern_example', type: 'type_example'}) # Branchrestriction | The new rule
+branchrestriction = Bitbucket::Branchrestriction.new({type: 'type_example'}) # Branchrestriction | The new rule
 
 begin
   # Create a branch restriction rule

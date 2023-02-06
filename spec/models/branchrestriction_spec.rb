@@ -25,54 +25,6 @@ describe Bitbucket::Branchrestriction do
       expect(instance).to be_instance_of(Bitbucket::Branchrestriction)
     end
   end
-  describe 'test attribute "links"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "id"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "kind"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["push", "delete", "force", "restrict_merges", "require_tasks_to_be_completed", "require_approvals_to_merge", "require_default_reviewer_approvals_to_merge", "require_no_changes_requested", "require_passing_builds_to_merge", "require_commits_behind", "reset_pullrequest_approvals_on_change", "smart_reset_pullrequest_approvals", "reset_pullrequest_changes_requested_on_change", "require_all_dependencies_merged", "enforce_merge_checks", "allow_auto_merge_when_builds_pass"])
-      # validator.allowable_values.each do |value|
-      #   expect { instance.kind = value }.not_to raise_error
-      # end
-    end
-  end
-
-  describe 'test attribute "branch_match_kind"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["branching_model", "glob"])
-      # validator.allowable_values.each do |value|
-      #   expect { instance.branch_match_kind = value }.not_to raise_error
-      # end
-    end
-  end
-
-  describe 'test attribute "branch_type"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["feature", "bugfix", "release", "hotfix", "development", "production"])
-      # validator.allowable_values.each do |value|
-      #   expect { instance.branch_type = value }.not_to raise_error
-      # end
-    end
-  end
-
-  describe 'test attribute "pattern"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   describe 'test attribute "users"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -80,12 +32,6 @@ describe Bitbucket::Branchrestriction do
   end
 
   describe 'test attribute "groups"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "value"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

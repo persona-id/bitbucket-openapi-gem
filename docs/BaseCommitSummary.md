@@ -1,4 +1,4 @@
-# Bitbucket::IssueContent
+# Bitbucket::BaseCommitSummary
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'bitbucket'
 
-instance = Bitbucket::IssueContent.new(
+instance = Bitbucket::BaseCommitSummary.new(
   raw: null,
   markup: null,
   html: null

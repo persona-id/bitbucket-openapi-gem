@@ -14,13 +14,44 @@ require 'date'
 require 'time'
 
 module Bitbucket
-  class RepositoryUserPermissionLinks
-    attr_accessor :_self
+  class BaseCommitSummary
+    # The text as it was typed by a user.
+    attr_accessor :raw
+
+    # The type of markup language the raw content is to be interpreted in.
+    attr_accessor :markup
+
+    # The user's content rendered as HTML.
+    attr_accessor :html
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'_self' => :'self'
+        :'raw' => :'raw',
+        :'markup' => :'markup',
+        :'html' => :'html'
       }
     end
 
@@ -32,7 +63,9 @@ module Bitbucket
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'_self' => :'Link1'
+        :'raw' => :'String',
+        :'markup' => :'String',
+        :'html' => :'String'
       }
     end
 
@@ -46,19 +79,27 @@ module Bitbucket
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Bitbucket::RepositoryUserPermissionLinks` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Bitbucket::BaseCommitSummary` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Bitbucket::RepositoryUserPermissionLinks`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Bitbucket::BaseCommitSummary`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'_self')
-        self._self = attributes[:'_self']
+      if attributes.key?(:'raw')
+        self.raw = attributes[:'raw']
+      end
+
+      if attributes.key?(:'markup')
+        self.markup = attributes[:'markup']
+      end
+
+      if attributes.key?(:'html')
+        self.html = attributes[:'html']
       end
     end
 
@@ -72,7 +113,19 @@ module Bitbucket
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      markup_validator = EnumAttributeValidator.new('String', ["markdown", "creole", "plaintext"])
+      return false unless markup_validator.valid?(@markup)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] markup Object to be assigned
+    def markup=(markup)
+      validator = EnumAttributeValidator.new('String', ["markdown", "creole", "plaintext"])
+      unless validator.valid?(markup)
+        fail ArgumentError, "invalid value for \"markup\", must be one of #{validator.allowable_values}."
+      end
+      @markup = markup
     end
 
     # Checks equality by comparing each attribute.
@@ -80,7 +133,9 @@ module Bitbucket
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          _self == o._self
+          raw == o.raw &&
+          markup == o.markup &&
+          html == o.html
     end
 
     # @see the `==` method
@@ -92,7 +147,7 @@ module Bitbucket
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_self].hash
+      [raw, markup, html].hash
     end
 
     # Builds the object from hash

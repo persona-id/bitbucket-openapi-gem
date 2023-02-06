@@ -8,7 +8,7 @@
 | **permission** | **String** |  | [optional] |
 | **user** | [**User**](User.md) |  | [optional] |
 | **repository** | [**Repository**](Repository.md) |  | [optional] |
-| **links** | [**RepositoryUserPermissionLinks**](RepositoryUserPermissionLinks.md) |  | [optional] |
+| **links** | [**RepositoryGroupPermissionLinks**](RepositoryGroupPermissionLinks.md) |  | [optional] |
 
 ## Example
 

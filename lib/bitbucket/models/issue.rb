@@ -119,7 +119,7 @@ module Bitbucket
         :'version' => :'Version',
         :'component' => :'Component',
         :'votes' => :'Integer',
-        :'content' => :'IssueContent'
+        :'content' => :'BaseCommitSummary'
       }
     end
 

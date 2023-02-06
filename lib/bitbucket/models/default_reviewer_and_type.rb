@@ -14,13 +14,20 @@ require 'date'
 require 'time'
 
 module Bitbucket
-  class VersionLinks
-    attr_accessor :_self
+  # Object containing a user that is a default reviewer and the type of reviewer
+  class DefaultReviewerAndType
+    attr_accessor :type
+
+    attr_accessor :reviewer_type
+
+    attr_accessor :user
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'_self' => :'self'
+        :'type' => :'type',
+        :'reviewer_type' => :'reviewer_type',
+        :'user' => :'user'
       }
     end
 
@@ -32,7 +39,9 @@ module Bitbucket
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'_self' => :'Link'
+        :'type' => :'String',
+        :'reviewer_type' => :'String',
+        :'user' => :'User'
       }
     end
 
@@ -46,19 +55,27 @@ module Bitbucket
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Bitbucket::VersionLinks` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Bitbucket::DefaultReviewerAndType` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Bitbucket::VersionLinks`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Bitbucket::DefaultReviewerAndType`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'_self')
-        self._self = attributes[:'_self']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'reviewer_type')
+        self.reviewer_type = attributes[:'reviewer_type']
+      end
+
+      if attributes.key?(:'user')
+        self.user = attributes[:'user']
       end
     end
 
@@ -66,12 +83,17 @@ module Bitbucket
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @type.nil?
       true
     end
 
@@ -80,7 +102,9 @@ module Bitbucket
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          _self == o._self
+          type == o.type &&
+          reviewer_type == o.reviewer_type &&
+          user == o.user
     end
 
     # @see the `==` method
@@ -92,7 +116,7 @@ module Bitbucket
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_self].hash
+      [type, reviewer_type, user].hash
     end
 
     # Builds the object from hash

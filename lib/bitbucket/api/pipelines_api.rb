@@ -998,6 +998,82 @@ module Bitbucket
       return data, status_code, headers
     end
 
+    # Delete caches
+    # Delete repository cache versions by name.
+    # @param workspace [String] The account.
+    # @param repo_slug [String] The repository.
+    # @param name [String] The cache name.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def delete_repository_pipeline_caches(workspace, repo_slug, name, opts = {})
+      delete_repository_pipeline_caches_with_http_info(workspace, repo_slug, name, opts)
+      nil
+    end
+
+    # Delete caches
+    # Delete repository cache versions by name.
+    # @param workspace [String] The account.
+    # @param repo_slug [String] The repository.
+    # @param name [String] The cache name.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_repository_pipeline_caches_with_http_info(workspace, repo_slug, name, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PipelinesApi.delete_repository_pipeline_caches ...'
+      end
+      # verify the required parameter 'workspace' is set
+      if @api_client.config.client_side_validation && workspace.nil?
+        fail ArgumentError, "Missing the required parameter 'workspace' when calling PipelinesApi.delete_repository_pipeline_caches"
+      end
+      # verify the required parameter 'repo_slug' is set
+      if @api_client.config.client_side_validation && repo_slug.nil?
+        fail ArgumentError, "Missing the required parameter 'repo_slug' when calling PipelinesApi.delete_repository_pipeline_caches"
+      end
+      # verify the required parameter 'name' is set
+      if @api_client.config.client_side_validation && name.nil?
+        fail ArgumentError, "Missing the required parameter 'name' when calling PipelinesApi.delete_repository_pipeline_caches"
+      end
+      # resource path
+      local_var_path = '/repositories/{workspace}/{repo_slug}/pipelines-config/caches'.sub('{' + 'workspace' + '}', CGI.escape(workspace.to_s)).sub('{' + 'repo_slug' + '}', CGI.escape(repo_slug.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'name'] = name
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"PipelinesApi.delete_repository_pipeline_caches",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PipelinesApi#delete_repository_pipeline_caches\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete SSH key pair
     # Delete the repository SSH key pair.
     # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example &#x60;{workspace UUID}&#x60;.
