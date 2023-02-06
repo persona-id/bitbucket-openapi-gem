@@ -15,7 +15,7 @@ From the [Bitbucket docs page](https://developer.atlassian.com/cloud/bitbucket/r
 From the `.openapi-generator` folder, run the following command.
 
 ```
-java -jar openapi-generator-cli.jar generate \
+openapi-generator generate \
   --input-spec https://developer.atlassian.com/cloud/bitbucket/swagger.v3.json \
   --generator-name ruby \
   --output .. \
