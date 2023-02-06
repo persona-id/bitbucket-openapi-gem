@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **links** | [**VersionLinks**](VersionLinks.md) |  | [optional] |
+| **links** | [**MilestoneLinks**](MilestoneLinks.md) |  | [optional] |
 | **user** | [**Account**](Account.md) |  | [optional] |
 | **workspace** | [**Workspace**](Workspace.md) |  | [optional] |
 

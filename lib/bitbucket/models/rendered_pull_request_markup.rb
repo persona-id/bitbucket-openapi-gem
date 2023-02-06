@@ -39,9 +39,9 @@ module Bitbucket
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'title' => :'IssueContent',
-        :'description' => :'IssueContent',
-        :'reason' => :'IssueContent'
+        :'title' => :'BaseCommitSummary',
+        :'description' => :'BaseCommitSummary',
+        :'reason' => :'BaseCommitSummary'
       }
     end
 

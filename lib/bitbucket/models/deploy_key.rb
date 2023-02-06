@@ -63,7 +63,7 @@ module Bitbucket
         :'label' => :'String',
         :'added_on' => :'Time',
         :'last_used' => :'Time',
-        :'links' => :'VersionLinks',
+        :'links' => :'MilestoneLinks',
         :'owner' => :'Account'
       }
     end

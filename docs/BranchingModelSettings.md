@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **links** | [**VersionLinks**](VersionLinks.md) |  | [optional] |
+| **links** | [**MilestoneLinks**](MilestoneLinks.md) |  | [optional] |
 | **branch_types** | [**Array&lt;BranchingModelSettingsBranchTypes&gt;**](BranchingModelSettingsBranchTypes.md) |  | [optional] |
 | **development** | [**BranchingModelSettingsDevelopment**](BranchingModelSettingsDevelopment.md) |  | [optional] |
 | **production** | [**BranchingModelSettingsProduction**](BranchingModelSettingsProduction.md) |  | [optional] |

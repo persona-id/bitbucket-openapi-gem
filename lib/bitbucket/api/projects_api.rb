@@ -93,6 +93,300 @@ module Bitbucket
       return data, status_code, headers
     end
 
+    # List the default reviewers in a project
+    # Return a list of all default reviewers for a project. This is a list of users that will be added as default reviewers to pull requests for any repository within the project.  Example: ``` $ curl https://api.bitbucket.org/2.0/.../projects/.../default-reviewers | jq . {     \"pagelen\": 10,     \"values\": [         {             \"user\": {                 \"display_name\": \"Davis Lee\",                 \"uuid\": \"{f0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6}\"             },             \"reviewer_type\": \"project\",             \"type\": \"default_reviewer\"         },         {             \"user\": {                 \"display_name\": \"Jorge Rodriguez\",                 \"uuid\": \"{1aa43376-260d-4a0b-9660-f62672b9655d}\"             },             \"reviewer_type\": \"project\",             \"type\": \"default_reviewer\"         }     ],     \"page\": 1,     \"size\": 2 } ```
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [PaginatedDefaultReviewerAndType]
+    def workspaces_workspace_projects_project_key_default_reviewers_get(project_key, workspace, opts = {})
+      data, _status_code, _headers = workspaces_workspace_projects_project_key_default_reviewers_get_with_http_info(project_key, workspace, opts)
+      data
+    end
+
+    # List the default reviewers in a project
+    # Return a list of all default reviewers for a project. This is a list of users that will be added as default reviewers to pull requests for any repository within the project.  Example: &#x60;&#x60;&#x60; $ curl https://api.bitbucket.org/2.0/.../projects/.../default-reviewers | jq . {     \&quot;pagelen\&quot;: 10,     \&quot;values\&quot;: [         {             \&quot;user\&quot;: {                 \&quot;display_name\&quot;: \&quot;Davis Lee\&quot;,                 \&quot;uuid\&quot;: \&quot;{f0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6}\&quot;             },             \&quot;reviewer_type\&quot;: \&quot;project\&quot;,             \&quot;type\&quot;: \&quot;default_reviewer\&quot;         },         {             \&quot;user\&quot;: {                 \&quot;display_name\&quot;: \&quot;Jorge Rodriguez\&quot;,                 \&quot;uuid\&quot;: \&quot;{1aa43376-260d-4a0b-9660-f62672b9655d}\&quot;             },             \&quot;reviewer_type\&quot;: \&quot;project\&quot;,             \&quot;type\&quot;: \&quot;default_reviewer\&quot;         }     ],     \&quot;page\&quot;: 1,     \&quot;size\&quot;: 2 } &#x60;&#x60;&#x60;
+    # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PaginatedDefaultReviewerAndType, Integer, Hash)>] PaginatedDefaultReviewerAndType data, response status code and response headers
+    def workspaces_workspace_projects_project_key_default_reviewers_get_with_http_info(project_key, workspace, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_get ...'
+      end
+      # verify the required parameter 'project_key' is set
+      if @api_client.config.client_side_validation && project_key.nil?
+        fail ArgumentError, "Missing the required parameter 'project_key' when calling ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_get"
+      end
+      # verify the required parameter 'workspace' is set
+      if @api_client.config.client_side_validation && workspace.nil?
+        fail ArgumentError, "Missing the required parameter 'workspace' when calling ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_get"
+      end
+      # resource path
+      local_var_path = '/workspaces/{workspace}/projects/{project_key}/default-reviewers'.sub('{' + 'project_key' + '}', CGI.escape(project_key.to_s)).sub('{' + 'workspace' + '}', CGI.escape(workspace.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PaginatedDefaultReviewerAndType'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'basic', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProjectsApi#workspaces_workspace_projects_project_key_default_reviewers_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove the specific user from the project's default reviewers
+    # Removes a default reviewer from the project.  Example: ``` $ curl https://api.bitbucket.org/2.0/.../default-reviewers/%7Bf0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6%7D  HTTP/1.1 204 ```
+    # @param project_key [String] The project in question. This can either be the actual &#x60;key&#x60; assigned to the project or the &#x60;UUID&#x60; (surrounded by curly-braces (&#x60;{}&#x60;)). 
+    # @param selected_user [String] This can either be the username or the UUID of the default reviewer, surrounded by curly-braces, for example: &#x60;{account UUID}&#x60;. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def workspaces_workspace_projects_project_key_default_reviewers_selected_user_delete(project_key, selected_user, workspace, opts = {})
+      workspaces_workspace_projects_project_key_default_reviewers_selected_user_delete_with_http_info(project_key, selected_user, workspace, opts)
+      nil
+    end
+
+    # Remove the specific user from the project&#39;s default reviewers
+    # Removes a default reviewer from the project.  Example: &#x60;&#x60;&#x60; $ curl https://api.bitbucket.org/2.0/.../default-reviewers/%7Bf0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6%7D  HTTP/1.1 204 &#x60;&#x60;&#x60;
+    # @param project_key [String] The project in question. This can either be the actual &#x60;key&#x60; assigned to the project or the &#x60;UUID&#x60; (surrounded by curly-braces (&#x60;{}&#x60;)). 
+    # @param selected_user [String] This can either be the username or the UUID of the default reviewer, surrounded by curly-braces, for example: &#x60;{account UUID}&#x60;. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def workspaces_workspace_projects_project_key_default_reviewers_selected_user_delete_with_http_info(project_key, selected_user, workspace, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_selected_user_delete ...'
+      end
+      # verify the required parameter 'project_key' is set
+      if @api_client.config.client_side_validation && project_key.nil?
+        fail ArgumentError, "Missing the required parameter 'project_key' when calling ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_selected_user_delete"
+      end
+      # verify the required parameter 'selected_user' is set
+      if @api_client.config.client_side_validation && selected_user.nil?
+        fail ArgumentError, "Missing the required parameter 'selected_user' when calling ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_selected_user_delete"
+      end
+      # verify the required parameter 'workspace' is set
+      if @api_client.config.client_side_validation && workspace.nil?
+        fail ArgumentError, "Missing the required parameter 'workspace' when calling ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_selected_user_delete"
+      end
+      # resource path
+      local_var_path = '/workspaces/{workspace}/projects/{project_key}/default-reviewers/{selected_user}'.sub('{' + 'project_key' + '}', CGI.escape(project_key.to_s)).sub('{' + 'selected_user' + '}', CGI.escape(selected_user.to_s)).sub('{' + 'workspace' + '}', CGI.escape(workspace.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'basic', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_selected_user_delete",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProjectsApi#workspaces_workspace_projects_project_key_default_reviewers_selected_user_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a default reviewer
+    # Returns the specified default reviewer.  Example: ``` $ curl https://api.bitbucket.org/2.0/.../default-reviewers/%7Bf0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6%7D {     \"display_name\": \"Davis Lee\",     \"type\": \"user\",     \"uuid\": \"{f0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6}\" } ```
+    # @param project_key [String] The project in question. This can either be the actual &#x60;key&#x60; assigned to the project or the &#x60;UUID&#x60; (surrounded by curly-braces (&#x60;{}&#x60;)). 
+    # @param selected_user [String] This can either be the username or the UUID of the default reviewer, surrounded by curly-braces, for example: &#x60;{account UUID}&#x60;. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [User]
+    def workspaces_workspace_projects_project_key_default_reviewers_selected_user_get(project_key, selected_user, workspace, opts = {})
+      data, _status_code, _headers = workspaces_workspace_projects_project_key_default_reviewers_selected_user_get_with_http_info(project_key, selected_user, workspace, opts)
+      data
+    end
+
+    # Get a default reviewer
+    # Returns the specified default reviewer.  Example: &#x60;&#x60;&#x60; $ curl https://api.bitbucket.org/2.0/.../default-reviewers/%7Bf0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6%7D {     \&quot;display_name\&quot;: \&quot;Davis Lee\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;uuid\&quot;: \&quot;{f0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6}\&quot; } &#x60;&#x60;&#x60;
+    # @param project_key [String] The project in question. This can either be the actual &#x60;key&#x60; assigned to the project or the &#x60;UUID&#x60; (surrounded by curly-braces (&#x60;{}&#x60;)). 
+    # @param selected_user [String] This can either be the username or the UUID of the default reviewer, surrounded by curly-braces, for example: &#x60;{account UUID}&#x60;. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(User, Integer, Hash)>] User data, response status code and response headers
+    def workspaces_workspace_projects_project_key_default_reviewers_selected_user_get_with_http_info(project_key, selected_user, workspace, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_selected_user_get ...'
+      end
+      # verify the required parameter 'project_key' is set
+      if @api_client.config.client_side_validation && project_key.nil?
+        fail ArgumentError, "Missing the required parameter 'project_key' when calling ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_selected_user_get"
+      end
+      # verify the required parameter 'selected_user' is set
+      if @api_client.config.client_side_validation && selected_user.nil?
+        fail ArgumentError, "Missing the required parameter 'selected_user' when calling ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_selected_user_get"
+      end
+      # verify the required parameter 'workspace' is set
+      if @api_client.config.client_side_validation && workspace.nil?
+        fail ArgumentError, "Missing the required parameter 'workspace' when calling ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_selected_user_get"
+      end
+      # resource path
+      local_var_path = '/workspaces/{workspace}/projects/{project_key}/default-reviewers/{selected_user}'.sub('{' + 'project_key' + '}', CGI.escape(project_key.to_s)).sub('{' + 'selected_user' + '}', CGI.escape(selected_user.to_s)).sub('{' + 'workspace' + '}', CGI.escape(workspace.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'User'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'basic', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_selected_user_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProjectsApi#workspaces_workspace_projects_project_key_default_reviewers_selected_user_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Add the specific user as a default reviewer for the project
+    # Adds the specified user to the project's list of default reviewers. The method is idempotent. Accepts an optional body containing the `uuid` of the user to be added.  Example: ``` $ curl -XPUT https://api.bitbucket.org/2.0/.../default-reviewers/%7Bf0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6%7D -d { 'uuid': '{f0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6}' }  HTTP/1.1 204 ```
+    # @param project_key [String] The project in question. This can either be the actual &#x60;key&#x60; assigned to the project or the &#x60;UUID&#x60; (surrounded by curly-braces (&#x60;{}&#x60;)). 
+    # @param selected_user [String] This can either be the username or the UUID of the default reviewer, surrounded by curly-braces, for example: &#x60;{account UUID}&#x60;. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [User]
+    def workspaces_workspace_projects_project_key_default_reviewers_selected_user_put(project_key, selected_user, workspace, opts = {})
+      data, _status_code, _headers = workspaces_workspace_projects_project_key_default_reviewers_selected_user_put_with_http_info(project_key, selected_user, workspace, opts)
+      data
+    end
+
+    # Add the specific user as a default reviewer for the project
+    # Adds the specified user to the project&#39;s list of default reviewers. The method is idempotent. Accepts an optional body containing the &#x60;uuid&#x60; of the user to be added.  Example: &#x60;&#x60;&#x60; $ curl -XPUT https://api.bitbucket.org/2.0/.../default-reviewers/%7Bf0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6%7D -d { &#39;uuid&#39;: &#39;{f0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6}&#39; }  HTTP/1.1 204 &#x60;&#x60;&#x60;
+    # @param project_key [String] The project in question. This can either be the actual &#x60;key&#x60; assigned to the project or the &#x60;UUID&#x60; (surrounded by curly-braces (&#x60;{}&#x60;)). 
+    # @param selected_user [String] This can either be the username or the UUID of the default reviewer, surrounded by curly-braces, for example: &#x60;{account UUID}&#x60;. 
+    # @param workspace [String] This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(User, Integer, Hash)>] User data, response status code and response headers
+    def workspaces_workspace_projects_project_key_default_reviewers_selected_user_put_with_http_info(project_key, selected_user, workspace, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_selected_user_put ...'
+      end
+      # verify the required parameter 'project_key' is set
+      if @api_client.config.client_side_validation && project_key.nil?
+        fail ArgumentError, "Missing the required parameter 'project_key' when calling ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_selected_user_put"
+      end
+      # verify the required parameter 'selected_user' is set
+      if @api_client.config.client_side_validation && selected_user.nil?
+        fail ArgumentError, "Missing the required parameter 'selected_user' when calling ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_selected_user_put"
+      end
+      # verify the required parameter 'workspace' is set
+      if @api_client.config.client_side_validation && workspace.nil?
+        fail ArgumentError, "Missing the required parameter 'workspace' when calling ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_selected_user_put"
+      end
+      # resource path
+      local_var_path = '/workspaces/{workspace}/projects/{project_key}/default-reviewers/{selected_user}'.sub('{' + 'project_key' + '}', CGI.escape(project_key.to_s)).sub('{' + 'selected_user' + '}', CGI.escape(selected_user.to_s)).sub('{' + 'workspace' + '}', CGI.escape(workspace.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'User'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'basic', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ProjectsApi.workspaces_workspace_projects_project_key_default_reviewers_selected_user_put",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProjectsApi#workspaces_workspace_projects_project_key_default_reviewers_selected_user_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a project for a workspace
     # Deletes this project. This is an irreversible operation.  You cannot delete a project that still contains repositories. To delete the project, [delete](/cloud/bitbucket/rest/api-group-repositories/#api-repositories-workspace-repo-slug-delete) or transfer the repositories first.  Example: ``` $ curl -X DELETE https://api.bitbucket.org/2.0/bbworkspace1/PROJ ```
     # @param project_key [String] The project in question. This is the actual &#x60;key&#x60; assigned to the project. 

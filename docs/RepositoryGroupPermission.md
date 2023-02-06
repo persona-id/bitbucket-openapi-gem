@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **type** | **String** |  |  |
-| **links** | [**RepositoryUserPermissionLinks**](RepositoryUserPermissionLinks.md) |  | [optional] |
+| **links** | [**RepositoryGroupPermissionLinks**](RepositoryGroupPermissionLinks.md) |  | [optional] |
 | **permission** | **String** |  | [optional] |
 | **group** | [**Group**](Group.md) |  | [optional] |
 | **repository** | [**Repository**](Repository.md) |  | [optional] |

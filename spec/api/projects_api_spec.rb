@@ -45,6 +45,61 @@ describe 'ProjectsApi' do
     end
   end
 
+  # unit tests for workspaces_workspace_projects_project_key_default_reviewers_get
+  # List the default reviewers in a project
+  # Return a list of all default reviewers for a project. This is a list of users that will be added as default reviewers to pull requests for any repository within the project.  Example: &#x60;&#x60;&#x60; $ curl https://api.bitbucket.org/2.0/.../projects/.../default-reviewers | jq . {     \&quot;pagelen\&quot;: 10,     \&quot;values\&quot;: [         {             \&quot;user\&quot;: {                 \&quot;display_name\&quot;: \&quot;Davis Lee\&quot;,                 \&quot;uuid\&quot;: \&quot;{f0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6}\&quot;             },             \&quot;reviewer_type\&quot;: \&quot;project\&quot;,             \&quot;type\&quot;: \&quot;default_reviewer\&quot;         },         {             \&quot;user\&quot;: {                 \&quot;display_name\&quot;: \&quot;Jorge Rodriguez\&quot;,                 \&quot;uuid\&quot;: \&quot;{1aa43376-260d-4a0b-9660-f62672b9655d}\&quot;             },             \&quot;reviewer_type\&quot;: \&quot;project\&quot;,             \&quot;type\&quot;: \&quot;default_reviewer\&quot;         }     ],     \&quot;page\&quot;: 1,     \&quot;size\&quot;: 2 } &#x60;&#x60;&#x60;
+  # @param project_key The project in question. This is the actual &#x60;key&#x60; assigned to the project. 
+  # @param workspace This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+  # @param [Hash] opts the optional parameters
+  # @return [PaginatedDefaultReviewerAndType]
+  describe 'workspaces_workspace_projects_project_key_default_reviewers_get test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for workspaces_workspace_projects_project_key_default_reviewers_selected_user_delete
+  # Remove the specific user from the project&#39;s default reviewers
+  # Removes a default reviewer from the project.  Example: &#x60;&#x60;&#x60; $ curl https://api.bitbucket.org/2.0/.../default-reviewers/%7Bf0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6%7D  HTTP/1.1 204 &#x60;&#x60;&#x60;
+  # @param project_key The project in question. This can either be the actual &#x60;key&#x60; assigned to the project or the &#x60;UUID&#x60; (surrounded by curly-braces (&#x60;{}&#x60;)). 
+  # @param selected_user This can either be the username or the UUID of the default reviewer, surrounded by curly-braces, for example: &#x60;{account UUID}&#x60;. 
+  # @param workspace This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'workspaces_workspace_projects_project_key_default_reviewers_selected_user_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for workspaces_workspace_projects_project_key_default_reviewers_selected_user_get
+  # Get a default reviewer
+  # Returns the specified default reviewer.  Example: &#x60;&#x60;&#x60; $ curl https://api.bitbucket.org/2.0/.../default-reviewers/%7Bf0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6%7D {     \&quot;display_name\&quot;: \&quot;Davis Lee\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;uuid\&quot;: \&quot;{f0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6}\&quot; } &#x60;&#x60;&#x60;
+  # @param project_key The project in question. This can either be the actual &#x60;key&#x60; assigned to the project or the &#x60;UUID&#x60; (surrounded by curly-braces (&#x60;{}&#x60;)). 
+  # @param selected_user This can either be the username or the UUID of the default reviewer, surrounded by curly-braces, for example: &#x60;{account UUID}&#x60;. 
+  # @param workspace This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+  # @param [Hash] opts the optional parameters
+  # @return [User]
+  describe 'workspaces_workspace_projects_project_key_default_reviewers_selected_user_get test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for workspaces_workspace_projects_project_key_default_reviewers_selected_user_put
+  # Add the specific user as a default reviewer for the project
+  # Adds the specified user to the project&#39;s list of default reviewers. The method is idempotent. Accepts an optional body containing the &#x60;uuid&#x60; of the user to be added.  Example: &#x60;&#x60;&#x60; $ curl -XPUT https://api.bitbucket.org/2.0/.../default-reviewers/%7Bf0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6%7D -d { &#39;uuid&#39;: &#39;{f0e0e8e9-66c1-4b85-a784-44a9eb9ef1a6}&#39; }  HTTP/1.1 204 &#x60;&#x60;&#x60;
+  # @param project_key The project in question. This can either be the actual &#x60;key&#x60; assigned to the project or the &#x60;UUID&#x60; (surrounded by curly-braces (&#x60;{}&#x60;)). 
+  # @param selected_user This can either be the username or the UUID of the default reviewer, surrounded by curly-braces, for example: &#x60;{account UUID}&#x60;. 
+  # @param workspace This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: &#x60;{workspace UUID}&#x60;. 
+  # @param [Hash] opts the optional parameters
+  # @return [User]
+  describe 'workspaces_workspace_projects_project_key_default_reviewers_selected_user_put test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for workspaces_workspace_projects_project_key_delete
   # Delete a project for a workspace
   # Deletes this project. This is an irreversible operation.  You cannot delete a project that still contains repositories. To delete the project, [delete](/cloud/bitbucket/rest/api-group-repositories/#api-repositories-workspace-repo-slug-delete) or transfer the repositories first.  Example: &#x60;&#x60;&#x60; $ curl -X DELETE https://api.bitbucket.org/2.0/bbworkspace1/PROJ &#x60;&#x60;&#x60;

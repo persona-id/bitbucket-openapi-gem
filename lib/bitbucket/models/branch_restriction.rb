@@ -16,64 +16,15 @@ require 'time'
 module Bitbucket
   # A branch restriction rule.
   class BranchRestriction
-    attr_accessor :links
-
-    # The branch restriction status' id.
-    attr_accessor :id
-
-    # The type of restriction that is being applied.
-    attr_accessor :kind
-
-    # Indicates how the restriction is matched against a branch. The default is `glob`.
-    attr_accessor :branch_match_kind
-
-    # Apply the restriction to branches of this type. Active when `branch_match_kind` is `branching_model`. The branch type will be calculated using the branching model configured for the repository.
-    attr_accessor :branch_type
-
-    # Apply the restriction to branches that match this pattern. Active when `branch_match_kind` is `glob`. Will be empty when `branch_match_kind` is `branching_model`.
-    attr_accessor :pattern
-
     attr_accessor :users
 
     attr_accessor :groups
 
-    # <staticmethod object at 0x7ff7b27cdfd0>
-    attr_accessor :value
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'links' => :'links',
-        :'id' => :'id',
-        :'kind' => :'kind',
-        :'branch_match_kind' => :'branch_match_kind',
-        :'branch_type' => :'branch_type',
-        :'pattern' => :'pattern',
         :'users' => :'users',
-        :'groups' => :'groups',
-        :'value' => :'value'
+        :'groups' => :'groups'
       }
     end
 
@@ -85,15 +36,8 @@ module Bitbucket
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'links' => :'VersionLinks',
-        :'id' => :'Integer',
-        :'kind' => :'String',
-        :'branch_match_kind' => :'String',
-        :'branch_type' => :'String',
-        :'pattern' => :'String',
         :'users' => :'Array<Account>',
-        :'groups' => :'Array<Group>',
-        :'value' => :'Integer'
+        :'groups' => :'Array<Group>'
       }
     end
 
@@ -118,30 +62,6 @@ module Bitbucket
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'links')
-        self.links = attributes[:'links']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'kind')
-        self.kind = attributes[:'kind']
-      end
-
-      if attributes.key?(:'branch_match_kind')
-        self.branch_match_kind = attributes[:'branch_match_kind']
-      end
-
-      if attributes.key?(:'branch_type')
-        self.branch_type = attributes[:'branch_type']
-      end
-
-      if attributes.key?(:'pattern')
-        self.pattern = attributes[:'pattern']
-      end
-
       if attributes.key?(:'users')
         if (value = attributes[:'users']).is_a?(Array)
           self.users = value
@@ -153,28 +73,12 @@ module Bitbucket
           self.groups = value
         end
       end
-
-      if attributes.key?(:'value')
-        self.value = attributes[:'value']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @kind.nil?
-        invalid_properties.push('invalid value for "kind", kind cannot be nil.')
-      end
-
-      if @branch_match_kind.nil?
-        invalid_properties.push('invalid value for "branch_match_kind", branch_match_kind cannot be nil.')
-      end
-
-      if @pattern.nil?
-        invalid_properties.push('invalid value for "pattern", pattern cannot be nil.')
-      end
-
       if !@users.nil? && @users.length < 0
         invalid_properties.push('invalid value for "users", number of items must be greater than or equal to 0.')
       end
@@ -189,48 +93,9 @@ module Bitbucket
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @kind.nil?
-      kind_validator = EnumAttributeValidator.new('String', ["push", "delete", "force", "restrict_merges", "require_tasks_to_be_completed", "require_approvals_to_merge", "require_default_reviewer_approvals_to_merge", "require_no_changes_requested", "require_passing_builds_to_merge", "require_commits_behind", "reset_pullrequest_approvals_on_change", "smart_reset_pullrequest_approvals", "reset_pullrequest_changes_requested_on_change", "require_all_dependencies_merged", "enforce_merge_checks", "allow_auto_merge_when_builds_pass"])
-      return false unless kind_validator.valid?(@kind)
-      return false if @branch_match_kind.nil?
-      branch_match_kind_validator = EnumAttributeValidator.new('String', ["branching_model", "glob"])
-      return false unless branch_match_kind_validator.valid?(@branch_match_kind)
-      branch_type_validator = EnumAttributeValidator.new('String', ["feature", "bugfix", "release", "hotfix", "development", "production"])
-      return false unless branch_type_validator.valid?(@branch_type)
-      return false if @pattern.nil?
       return false if !@users.nil? && @users.length < 0
       return false if !@groups.nil? && @groups.length < 0
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] kind Object to be assigned
-    def kind=(kind)
-      validator = EnumAttributeValidator.new('String', ["push", "delete", "force", "restrict_merges", "require_tasks_to_be_completed", "require_approvals_to_merge", "require_default_reviewer_approvals_to_merge", "require_no_changes_requested", "require_passing_builds_to_merge", "require_commits_behind", "reset_pullrequest_approvals_on_change", "smart_reset_pullrequest_approvals", "reset_pullrequest_changes_requested_on_change", "require_all_dependencies_merged", "enforce_merge_checks", "allow_auto_merge_when_builds_pass"])
-      unless validator.valid?(kind)
-        fail ArgumentError, "invalid value for \"kind\", must be one of #{validator.allowable_values}."
-      end
-      @kind = kind
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] branch_match_kind Object to be assigned
-    def branch_match_kind=(branch_match_kind)
-      validator = EnumAttributeValidator.new('String', ["branching_model", "glob"])
-      unless validator.valid?(branch_match_kind)
-        fail ArgumentError, "invalid value for \"branch_match_kind\", must be one of #{validator.allowable_values}."
-      end
-      @branch_match_kind = branch_match_kind
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] branch_type Object to be assigned
-    def branch_type=(branch_type)
-      validator = EnumAttributeValidator.new('String', ["feature", "bugfix", "release", "hotfix", "development", "production"])
-      unless validator.valid?(branch_type)
-        fail ArgumentError, "invalid value for \"branch_type\", must be one of #{validator.allowable_values}."
-      end
-      @branch_type = branch_type
     end
 
     # Custom attribute writer method with validation
@@ -258,15 +123,8 @@ module Bitbucket
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          links == o.links &&
-          id == o.id &&
-          kind == o.kind &&
-          branch_match_kind == o.branch_match_kind &&
-          branch_type == o.branch_type &&
-          pattern == o.pattern &&
           users == o.users &&
-          groups == o.groups &&
-          value == o.value
+          groups == o.groups
     end
 
     # @see the `==` method
@@ -278,7 +136,7 @@ module Bitbucket
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [links, id, kind, branch_match_kind, branch_type, pattern, users, groups, value].hash
+      [users, groups].hash
     end
 
     # Builds the object from hash

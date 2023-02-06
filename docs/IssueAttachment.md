@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **links** | [**VersionLinks**](VersionLinks.md) |  | [optional] |
+| **links** | [**MilestoneLinks**](MilestoneLinks.md) |  | [optional] |
 | **name** | **String** |  | [optional] |
 
 ## Example

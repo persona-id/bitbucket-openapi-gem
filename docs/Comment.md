@@ -7,7 +7,7 @@
 | **id** | **Integer** |  | [optional] |
 | **created_on** | **Time** |  | [optional] |
 | **updated_on** | **Time** |  | [optional] |
-| **content** | [**IssueContent**](IssueContent.md) |  | [optional] |
+| **content** | [**BaseCommitSummary**](BaseCommitSummary.md) |  | [optional] |
 | **user** | [**Account**](Account.md) |  | [optional] |
 | **deleted** | **Boolean** |  | [optional] |
 | **parent** | [**Comment**](Comment.md) |  | [optional] |

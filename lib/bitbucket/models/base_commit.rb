@@ -52,7 +52,7 @@ module Bitbucket
         :'date' => :'Time',
         :'author' => :'Author',
         :'message' => :'String',
-        :'summary' => :'IssueContent',
+        :'summary' => :'BaseCommitSummary',
         :'parents' => :'Array<BaseCommit>'
       }
     end

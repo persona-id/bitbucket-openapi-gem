@@ -39,7 +39,7 @@ module Bitbucket
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'links' => :'VersionLinks',
+        :'links' => :'MilestoneLinks',
         :'user' => :'Account',
         :'workspace' => :'Workspace'
       }

@@ -10,7 +10,7 @@
 | **label** | **String** | The user-defined label for the SSH key | [optional] |
 | **created_on** | **Time** |  | [optional] |
 | **last_used** | **Time** |  | [optional] |
-| **links** | [**VersionLinks**](VersionLinks.md) |  | [optional] |
+| **links** | [**MilestoneLinks**](MilestoneLinks.md) |  | [optional] |
 
 ## Example
 

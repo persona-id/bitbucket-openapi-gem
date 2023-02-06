@@ -14,16 +14,18 @@ require 'date'
 require 'time'
 
 module Bitbucket
-  class GroupLinks
-    attr_accessor :_self
+  class ProjectBranchingModelDevelopment
+    # Name of the target branch. If inherited by a repository, it will default to the main branch if the specified branch does not exist.
+    attr_accessor :name
 
-    attr_accessor :html
+    # Indicates if the setting points at an explicit branch (`false`) or tracks the main branch (`true`).
+    attr_accessor :use_mainbranch
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'_self' => :'self',
-        :'html' => :'html'
+        :'name' => :'name',
+        :'use_mainbranch' => :'use_mainbranch'
       }
     end
 
@@ -35,8 +37,8 @@ module Bitbucket
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'_self' => :'Link',
-        :'html' => :'Link'
+        :'name' => :'String',
+        :'use_mainbranch' => :'Boolean'
       }
     end
 
@@ -50,23 +52,23 @@ module Bitbucket
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Bitbucket::GroupLinks` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Bitbucket::ProjectBranchingModelDevelopment` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Bitbucket::GroupLinks`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Bitbucket::ProjectBranchingModelDevelopment`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'_self')
-        self._self = attributes[:'_self']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'html')
-        self.html = attributes[:'html']
+      if attributes.key?(:'use_mainbranch')
+        self.use_mainbranch = attributes[:'use_mainbranch']
       end
     end
 
@@ -74,12 +76,22 @@ module Bitbucket
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @use_mainbranch.nil?
+        invalid_properties.push('invalid value for "use_mainbranch", use_mainbranch cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @name.nil?
+      return false if @use_mainbranch.nil?
       true
     end
 
@@ -88,8 +100,8 @@ module Bitbucket
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          _self == o._self &&
-          html == o.html
+          name == o.name &&
+          use_mainbranch == o.use_mainbranch
     end
 
     # @see the `==` method
@@ -101,7 +113,7 @@ module Bitbucket
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_self, html].hash
+      [name, use_mainbranch].hash
     end
 
     # Builds the object from hash

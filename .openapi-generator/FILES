@@ -14,6 +14,7 @@ docs/AppUser.md
 docs/ApplicationProperty.md
 docs/Author.md
 docs/BaseCommit.md
+docs/BaseCommitSummary.md
 docs/Branch.md
 docs/BranchRestriction.md
 docs/BranchRestrictionsApi.md
@@ -40,6 +41,7 @@ docs/CommitsApi.md
 docs/Commitstatus.md
 docs/Component.md
 docs/DdevReport.md
+docs/DefaultReviewerAndType.md
 docs/DeployKey.md
 docs/Deployment.md
 docs/DeploymentEnvironment.md
@@ -69,11 +71,12 @@ docs/DeploymentsStgWestDeploymentEnvironmentLock.md
 docs/DeploymentsStgWestPaginatedEnvironments.md
 docs/Diffstat.md
 docs/DownloadsApi.md
+docs/EffectiveRepoBranchingModel.md
+docs/EffectiveRepositoryBranchingModel.md
 docs/Error.md
 docs/ErrorError.md
 docs/ExportOptions.md
 docs/Group.md
-docs/GroupLinks.md
 docs/HookEvent.md
 docs/Issue.md
 docs/IssueAttachment.md
@@ -83,7 +86,6 @@ docs/IssueChangeChangesAssignee.md
 docs/IssueChangeLinks.md
 docs/IssueChangeMessage.md
 docs/IssueComment.md
-docs/IssueContent.md
 docs/IssueJobStatus.md
 docs/IssueLinks.md
 docs/IssueTrackerApi.md
@@ -92,6 +94,7 @@ docs/JiraSite.md
 docs/Link.md
 docs/Link1.md
 docs/Milestone.md
+docs/MilestoneLinks.md
 docs/Object.md
 docs/Page.md
 docs/PaginatedAccounts.md
@@ -102,6 +105,7 @@ docs/PaginatedChangeset.md
 docs/PaginatedCommitComments.md
 docs/PaginatedCommitstatuses.md
 docs/PaginatedComponents.md
+docs/PaginatedDefaultReviewerAndType.md
 docs/PaginatedDeployKeys.md
 docs/PaginatedDeploymentVariable.md
 docs/PaginatedDeployments.md
@@ -121,6 +125,7 @@ docs/PaginatedPipelineSchedules.md
 docs/PaginatedPipelineSteps.md
 docs/PaginatedPipelineVariables.md
 docs/PaginatedPipelines.md
+docs/PaginatedProjectDeployKeys.md
 docs/PaginatedProjects.md
 docs/PaginatedPullrequestComments.md
 docs/PaginatedPullrequests.md
@@ -220,6 +225,9 @@ docs/PipelinesConfiguration.md
 docs/PipelinesDdevPipelineStep.md
 docs/PipelinesStgWestPipelineStep.md
 docs/Project.md
+docs/ProjectBranchingModel.md
+docs/ProjectBranchingModelDevelopment.md
+docs/ProjectDeployKey.md
 docs/ProjectLinks.md
 docs/ProjectsApi.md
 docs/PropertiesApi.md
@@ -245,10 +253,11 @@ docs/ReportsApi.md
 docs/RepositoriesApi.md
 docs/Repository.md
 docs/RepositoryGroupPermission.md
+docs/RepositoryGroupPermissionLinks.md
+docs/RepositoryInheritanceState.md
 docs/RepositoryLinks.md
 docs/RepositoryPermission.md
 docs/RepositoryUserPermission.md
-docs/RepositoryUserPermissionLinks.md
 docs/SSHAccountKey.md
 docs/SSHKey.md
 docs/SearchApi.md
@@ -259,6 +268,7 @@ docs/SearchResultPage.md
 docs/SearchSegment.md
 docs/Snippet.md
 docs/SnippetComment.md
+docs/SnippetCommentLinks.md
 docs/SnippetCommit.md
 docs/SnippetCommitLinks.md
 docs/SnippetsApi.md
@@ -277,7 +287,6 @@ docs/User.md
 docs/UserLinks.md
 docs/UsersApi.md
 docs/Version.md
-docs/VersionLinks.md
 docs/WebhookSubscription.md
 docs/WebhooksApi.md
 docs/Workspace.md
@@ -317,6 +326,7 @@ lib/bitbucket/models/app_user.rb
 lib/bitbucket/models/application_property.rb
 lib/bitbucket/models/author.rb
 lib/bitbucket/models/base_commit.rb
+lib/bitbucket/models/base_commit_summary.rb
 lib/bitbucket/models/branch.rb
 lib/bitbucket/models/branch_restriction.rb
 lib/bitbucket/models/branching_model.rb
@@ -339,6 +349,7 @@ lib/bitbucket/models/commit_status_links.rb
 lib/bitbucket/models/commitstatus.rb
 lib/bitbucket/models/component.rb
 lib/bitbucket/models/ddev_report.rb
+lib/bitbucket/models/default_reviewer_and_type.rb
 lib/bitbucket/models/deploy_key.rb
 lib/bitbucket/models/deployment.rb
 lib/bitbucket/models/deployment_environment.rb
@@ -366,11 +377,12 @@ lib/bitbucket/models/deployments_stg_west_deployment_environment.rb
 lib/bitbucket/models/deployments_stg_west_deployment_environment_lock.rb
 lib/bitbucket/models/deployments_stg_west_paginated_environments.rb
 lib/bitbucket/models/diffstat.rb
+lib/bitbucket/models/effective_repo_branching_model.rb
+lib/bitbucket/models/effective_repository_branching_model.rb
 lib/bitbucket/models/error.rb
 lib/bitbucket/models/error_error.rb
 lib/bitbucket/models/export_options.rb
 lib/bitbucket/models/group.rb
-lib/bitbucket/models/group_links.rb
 lib/bitbucket/models/hook_event.rb
 lib/bitbucket/models/issue.rb
 lib/bitbucket/models/issue_attachment.rb
@@ -380,7 +392,6 @@ lib/bitbucket/models/issue_change_changes_assignee.rb
 lib/bitbucket/models/issue_change_links.rb
 lib/bitbucket/models/issue_change_message.rb
 lib/bitbucket/models/issue_comment.rb
-lib/bitbucket/models/issue_content.rb
 lib/bitbucket/models/issue_job_status.rb
 lib/bitbucket/models/issue_links.rb
 lib/bitbucket/models/jira_project.rb
@@ -388,6 +399,7 @@ lib/bitbucket/models/jira_site.rb
 lib/bitbucket/models/link.rb
 lib/bitbucket/models/link1.rb
 lib/bitbucket/models/milestone.rb
+lib/bitbucket/models/milestone_links.rb
 lib/bitbucket/models/object.rb
 lib/bitbucket/models/page.rb
 lib/bitbucket/models/paginated_accounts.rb
@@ -398,6 +410,7 @@ lib/bitbucket/models/paginated_changeset.rb
 lib/bitbucket/models/paginated_commit_comments.rb
 lib/bitbucket/models/paginated_commitstatuses.rb
 lib/bitbucket/models/paginated_components.rb
+lib/bitbucket/models/paginated_default_reviewer_and_type.rb
 lib/bitbucket/models/paginated_deploy_keys.rb
 lib/bitbucket/models/paginated_deployment_variable.rb
 lib/bitbucket/models/paginated_deployments.rb
@@ -417,6 +430,7 @@ lib/bitbucket/models/paginated_pipeline_schedules.rb
 lib/bitbucket/models/paginated_pipeline_steps.rb
 lib/bitbucket/models/paginated_pipeline_variables.rb
 lib/bitbucket/models/paginated_pipelines.rb
+lib/bitbucket/models/paginated_project_deploy_keys.rb
 lib/bitbucket/models/paginated_projects.rb
 lib/bitbucket/models/paginated_pullrequest_comments.rb
 lib/bitbucket/models/paginated_pullrequests.rb
@@ -515,6 +529,9 @@ lib/bitbucket/models/pipelines_configuration.rb
 lib/bitbucket/models/pipelines_ddev_pipeline_step.rb
 lib/bitbucket/models/pipelines_stg_west_pipeline_step.rb
 lib/bitbucket/models/project.rb
+lib/bitbucket/models/project_branching_model.rb
+lib/bitbucket/models/project_branching_model_development.rb
+lib/bitbucket/models/project_deploy_key.rb
 lib/bitbucket/models/project_links.rb
 lib/bitbucket/models/pull_request.rb
 lib/bitbucket/models/pull_request_branch.rb
@@ -534,10 +551,11 @@ lib/bitbucket/models/report_annotation.rb
 lib/bitbucket/models/report_data.rb
 lib/bitbucket/models/repository.rb
 lib/bitbucket/models/repository_group_permission.rb
+lib/bitbucket/models/repository_group_permission_links.rb
+lib/bitbucket/models/repository_inheritance_state.rb
 lib/bitbucket/models/repository_links.rb
 lib/bitbucket/models/repository_permission.rb
 lib/bitbucket/models/repository_user_permission.rb
-lib/bitbucket/models/repository_user_permission_links.rb
 lib/bitbucket/models/search_code_search_result.rb
 lib/bitbucket/models/search_content_match.rb
 lib/bitbucket/models/search_line.rb
@@ -545,6 +563,7 @@ lib/bitbucket/models/search_result_page.rb
 lib/bitbucket/models/search_segment.rb
 lib/bitbucket/models/snippet.rb
 lib/bitbucket/models/snippet_comment.rb
+lib/bitbucket/models/snippet_comment_links.rb
 lib/bitbucket/models/snippet_commit.rb
 lib/bitbucket/models/snippet_commit_links.rb
 lib/bitbucket/models/ssh_account_key.rb
@@ -561,7 +580,6 @@ lib/bitbucket/models/treeentry.rb
 lib/bitbucket/models/user.rb
 lib/bitbucket/models/user_links.rb
 lib/bitbucket/models/version.rb
-lib/bitbucket/models/version_links.rb
 lib/bitbucket/models/webhook_subscription.rb
 lib/bitbucket/models/workspace.rb
 lib/bitbucket/models/workspace_links.rb
@@ -597,6 +615,7 @@ spec/models/app_user_spec.rb
 spec/models/application_property_spec.rb
 spec/models/author_spec.rb
 spec/models/base_commit_spec.rb
+spec/models/base_commit_summary_spec.rb
 spec/models/branch_restriction_spec.rb
 spec/models/branch_spec.rb
 spec/models/branching_model_branch_types_spec.rb
@@ -619,6 +638,7 @@ spec/models/commit_status_spec.rb
 spec/models/commitstatus_spec.rb
 spec/models/component_spec.rb
 spec/models/ddev_report_spec.rb
+spec/models/default_reviewer_and_type_spec.rb
 spec/models/deploy_key_spec.rb
 spec/models/deployment_environment_lock_spec.rb
 spec/models/deployment_environment_spec.rb
@@ -646,10 +666,11 @@ spec/models/deployments_stg_west_deployment_environment_lock_spec.rb
 spec/models/deployments_stg_west_deployment_environment_spec.rb
 spec/models/deployments_stg_west_paginated_environments_spec.rb
 spec/models/diffstat_spec.rb
+spec/models/effective_repo_branching_model_spec.rb
+spec/models/effective_repository_branching_model_spec.rb
 spec/models/error_error_spec.rb
 spec/models/error_spec.rb
 spec/models/export_options_spec.rb
-spec/models/group_links_spec.rb
 spec/models/group_spec.rb
 spec/models/hook_event_spec.rb
 spec/models/issue_attachment_spec.rb
@@ -659,7 +680,6 @@ spec/models/issue_change_links_spec.rb
 spec/models/issue_change_message_spec.rb
 spec/models/issue_change_spec.rb
 spec/models/issue_comment_spec.rb
-spec/models/issue_content_spec.rb
 spec/models/issue_job_status_spec.rb
 spec/models/issue_links_spec.rb
 spec/models/issue_spec.rb
@@ -667,6 +687,7 @@ spec/models/jira_project_spec.rb
 spec/models/jira_site_spec.rb
 spec/models/link1_spec.rb
 spec/models/link_spec.rb
+spec/models/milestone_links_spec.rb
 spec/models/milestone_spec.rb
 spec/models/object_spec.rb
 spec/models/page_spec.rb
@@ -678,6 +699,7 @@ spec/models/paginated_changeset_spec.rb
 spec/models/paginated_commit_comments_spec.rb
 spec/models/paginated_commitstatuses_spec.rb
 spec/models/paginated_components_spec.rb
+spec/models/paginated_default_reviewer_and_type_spec.rb
 spec/models/paginated_deploy_keys_spec.rb
 spec/models/paginated_deployment_variable_spec.rb
 spec/models/paginated_deployments_spec.rb
@@ -697,6 +719,7 @@ spec/models/paginated_pipeline_schedules_spec.rb
 spec/models/paginated_pipeline_steps_spec.rb
 spec/models/paginated_pipeline_variables_spec.rb
 spec/models/paginated_pipelines_spec.rb
+spec/models/paginated_project_deploy_keys_spec.rb
 spec/models/paginated_projects_spec.rb
 spec/models/paginated_pullrequest_comments_spec.rb
 spec/models/paginated_pullrequests_spec.rb
@@ -792,6 +815,9 @@ spec/models/pipelines_config_spec.rb
 spec/models/pipelines_configuration_spec.rb
 spec/models/pipelines_ddev_pipeline_step_spec.rb
 spec/models/pipelines_stg_west_pipeline_step_spec.rb
+spec/models/project_branching_model_development_spec.rb
+spec/models/project_branching_model_spec.rb
+spec/models/project_deploy_key_spec.rb
 spec/models/project_links_spec.rb
 spec/models/project_spec.rb
 spec/models/pull_request_branch_spec.rb
@@ -810,17 +836,19 @@ spec/models/rendered_pull_request_markup_spec.rb
 spec/models/report_annotation_spec.rb
 spec/models/report_data_spec.rb
 spec/models/report_spec.rb
+spec/models/repository_group_permission_links_spec.rb
 spec/models/repository_group_permission_spec.rb
+spec/models/repository_inheritance_state_spec.rb
 spec/models/repository_links_spec.rb
 spec/models/repository_permission_spec.rb
 spec/models/repository_spec.rb
-spec/models/repository_user_permission_links_spec.rb
 spec/models/repository_user_permission_spec.rb
 spec/models/search_code_search_result_spec.rb
 spec/models/search_content_match_spec.rb
 spec/models/search_line_spec.rb
 spec/models/search_result_page_spec.rb
 spec/models/search_segment_spec.rb
+spec/models/snippet_comment_links_spec.rb
 spec/models/snippet_comment_spec.rb
 spec/models/snippet_commit_links_spec.rb
 spec/models/snippet_commit_spec.rb
@@ -836,7 +864,6 @@ spec/models/team_spec.rb
 spec/models/treeentry_spec.rb
 spec/models/user_links_spec.rb
 spec/models/user_spec.rb
-spec/models/version_links_spec.rb
 spec/models/version_spec.rb
 spec/models/webhook_subscription_spec.rb
 spec/models/workspace_links_spec.rb

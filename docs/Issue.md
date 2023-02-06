@@ -20,7 +20,7 @@
 | **version** | [**Version**](Version.md) |  | [optional] |
 | **component** | [**Component**](Component.md) |  | [optional] |
 | **votes** | **Integer** |  | [optional] |
-| **content** | [**IssueContent**](IssueContent.md) |  | [optional] |
+| **content** | [**BaseCommitSummary**](BaseCommitSummary.md) |  | [optional] |
 
 ## Example
 

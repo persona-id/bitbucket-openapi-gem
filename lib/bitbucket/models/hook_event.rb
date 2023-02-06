@@ -123,7 +123,7 @@ module Bitbucket
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      event_validator = EnumAttributeValidator.new('String', ["repo:fork", "pullrequest:fulfilled", "project:updated", "pullrequest:rejected", "repo:push", "pullrequest:comment_deleted", "repo:transfer", "pullrequest:comment_updated", "repo:commit_status_updated", "issue:updated", "issue:comment_created", "repo:commit_comment_created", "pullrequest:created", "repo:commit_status_created", "repo:updated", "pullrequest:changes_request_created", "issue:created", "pullrequest:updated", "pullrequest:unapproved", "repo:imported", "pullrequest:approved", "pullrequest:changes_request_removed", "repo:deleted", "pullrequest:comment_created", "repo:created"])
+      event_validator = EnumAttributeValidator.new('String', ["repo:updated", "repo:transfer", "repo:created", "project:updated", "pullrequest:changes_request_created", "pullrequest:changes_request_removed", "issue:comment_created", "pullrequest:comment_updated", "repo:fork", "issue:created", "pullrequest:created", "repo:imported", "repo:commit_status_updated", "pullrequest:fulfilled", "pullrequest:comment_created", "pullrequest:approved", "pullrequest:unapproved", "issue:updated", "repo:commit_comment_created", "repo:commit_status_created", "repo:push", "pullrequest:comment_deleted", "repo:deleted", "pullrequest:updated", "pullrequest:rejected"])
       return false unless event_validator.valid?(@event)
       true
     end
@@ -131,7 +131,7 @@ module Bitbucket
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] event Object to be assigned
     def event=(event)
-      validator = EnumAttributeValidator.new('String', ["repo:fork", "pullrequest:fulfilled", "project:updated", "pullrequest:rejected", "repo:push", "pullrequest:comment_deleted", "repo:transfer", "pullrequest:comment_updated", "repo:commit_status_updated", "issue:updated", "issue:comment_created", "repo:commit_comment_created", "pullrequest:created", "repo:commit_status_created", "repo:updated", "pullrequest:changes_request_created", "issue:created", "pullrequest:updated", "pullrequest:unapproved", "repo:imported", "pullrequest:approved", "pullrequest:changes_request_removed", "repo:deleted", "pullrequest:comment_created", "repo:created"])
+      validator = EnumAttributeValidator.new('String', ["repo:updated", "repo:transfer", "repo:created", "project:updated", "pullrequest:changes_request_created", "pullrequest:changes_request_removed", "issue:comment_created", "pullrequest:comment_updated", "repo:fork", "issue:created", "pullrequest:created", "repo:imported", "repo:commit_status_updated", "pullrequest:fulfilled", "pullrequest:comment_created", "pullrequest:approved", "pullrequest:unapproved", "issue:updated", "repo:commit_comment_created", "repo:commit_status_created", "repo:push", "pullrequest:comment_deleted", "repo:deleted", "pullrequest:updated", "pullrequest:rejected"])
       unless validator.valid?(event)
         fail ArgumentError, "invalid value for \"event\", must be one of #{validator.allowable_values}."
       end
